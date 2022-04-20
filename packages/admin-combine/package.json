@@ -1,0 +1,11 @@
+{
+  "name": "@admin/combine",
+  "packageManager": "yarn@3.2.0",
+  "dependencies": {
+    "@common/components": "workspace:^",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4"
+  }
+}

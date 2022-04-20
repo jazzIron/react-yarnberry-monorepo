@@ -1,0 +1,42 @@
+{
+  "name": "react-yarn2-monorepo",
+  "packageManager": "yarn@3.2.0",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx --cache",
+    "common": "yarn workspace @common/components",
+    "common-styles": "yarn workspace @common/styles",
+    "combine": "yarn workspace @admin/combine",
+    "hospital": "yarn workspace @admin/hospital",
+    "build": "yarn workspaces foreach run build",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8",
+    "@types/prettier": "^2",
+    "@types/react": "^17",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "@yarnpkg/sdks": "^3.0.0-rc.2",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8",
+    "prettier": "^2.6.2",
+    "react": "17.0.2",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.7"
+  },
+  "resolutions": {
+    "@storybook/core-common/webpack": "^5",
+    "@storybook/core-server/webpack": "^5",
+    "@storybook/react/webpack": "^5"
+  }
+}
