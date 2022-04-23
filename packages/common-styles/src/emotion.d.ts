@@ -1,10 +1,7 @@
 import '@emotion/react';
-import { Themes } from './Theme';
+import { ITheme } from './types';
 
 declare module '@emotion/react' {
-  export interface Theme {
-    colors: typeof Themes.colors;
-    fonts: typeof Themes.fonts;
-    // cssx: typeof Themes.cssx;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface Theme extends ITheme {}
 }

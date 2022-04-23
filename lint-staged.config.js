@@ -7,11 +7,11 @@ module.exports = {
   'packages/common-styles/**/*.+(ts|tsx)': [
     () => 'yarn tsc -p packages/common-styles/tsconfig.json --noEmit',
   ],
-    'packages/admin-combine/**/*.+(ts|tsx)': [
-      () => 'yarn tsc -p packages/prototype-a/tsconfig.json --noEmit',
-    ],
-    'packages/admin-hospital/**/*.+(ts|tsx)': [
-      () => 'yarn tsc -p packages/prototype-b/tsconfig.json --noEmit',
-    ],
+  'packages/admin-combine/**/*.+(ts|tsx)': [
+    () => 'yarn tsc -p packages/admin-combine/tsconfig.json --noEmit',
+  ],
+  'packages/admin-hospital/**/*.+(ts|tsx)': [
+    () => 'yarn tsc -p packages/admin-hospital/tsconfig.json --noEmit',
+  ],
   '**/*.+(ts|tsx|js|jsx)': ['eslint --fix --cache', 'prettier --write'],
 };

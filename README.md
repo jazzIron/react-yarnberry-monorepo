@@ -59,6 +59,11 @@ yarn plugin import typescript
 1. 개별 프로젝트의 스크립트 실행
 프로젝트의 스크립트는 <code>yarn workspace 프로젝트명 스크립트</code>를 통해 실행
 
+ex) 
+```js
+yarn combine add express @common/components
+```
+
 ```js
 "scripts": {
   "common-components": "yarn workspace @common/components",

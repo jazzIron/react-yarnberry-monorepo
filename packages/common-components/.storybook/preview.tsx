@@ -1,10 +1,10 @@
 import { ThemeProvider } from '@emotion/react';
 import { DecoratorFn } from '@storybook/react';
-import { Themes } from '@common/styles';
+import { theme } from '@common/styles';
 
 export const decorators: DecoratorFn[] = [
-  Story => (
-    <ThemeProvider theme={Themes}>
+  (Story) => (
+    <ThemeProvider theme={theme}>
       <Story />
     </ThemeProvider>
   ),

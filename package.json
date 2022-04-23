@@ -5,11 +5,9 @@
   "main": "main",
   "author": "jazz.Iron",
   "license": "ISC",
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx --cache",
     "common": "yarn workspace @common/components",
@@ -42,6 +40,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.8",
     "prettier": "^2.6.2",
+    "process": "^0.11.10",
     "react": "17.0.2",
     "typescript": "^4.6.3"
   },
