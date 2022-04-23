@@ -16,6 +16,12 @@ module.exports = {
       test: /\.(ts|tsx)$/,
       loader: require.resolve('babel-loader'),
     });
+    config.resolve.alias = {
+      '@src': path.resolve(__dirname, 'src/'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+    };
+
     return config;
   },
 };

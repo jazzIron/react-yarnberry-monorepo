@@ -3,7 +3,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "typescript-styled-plugin",
@@ -15,25 +15,25 @@
     ],
     "paths": {
       "@src/*": [
-        "./*"
+        "./src/*"
       ],
       "@components/*": [
-        "./components/*"
+        "./src/components/*"
       ],
       "@features/*": [
-        "./features/*"
+        "./src/features/*"
       ],
       "@pages/*": [
-        "./pages/*"
+        "./src/pages/*"
       ],
       "@layout/*": [
-        "./layout/*"
+        "./src/layout/*"
       ],
       "@utils/*": [
-        "./utils/*"
+        "./src/utils/*"
       ],
       "@assets/*": [
-        "./assets/*"
+        "./src/assets/*"
       ]
     }
   },

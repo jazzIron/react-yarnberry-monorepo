@@ -1,6 +1,6 @@
-import colors from './colors';
-import defaultTheme from './defaultTheme';
 import { ITheme } from './types';
+import defaultTheme from './defaultTheme';
 
 export type ThemeType = ITheme;
-export { colors, defaultTheme as theme };
+
+export { defaultTheme as theme };
