@@ -4,11 +4,11 @@
         "jsx": "react-jsx",
         "jsxImportSource": "@emotion/react",
         "baseUrl": ".",
-        "composite": false,
+        "composite": true,
         "declaration": true,
-        "types": [
-            "jest"
-        ],
+        // "types": [
+        //     "jest"
+        // ],
         "plugins": [
             {
                 "name": "typescript-styled-plugin",
@@ -27,7 +27,6 @@
         "@types/*",
         "utils/**/*",
         ".storybook/*",
-        "jest.setup.ts",
-        "utils"
+        "jest.setup.ts"
     ]
 }

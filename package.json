@@ -1,6 +1,10 @@
 {
   "name": "react-yarn2-monorepo",
   "packageManager": "yarn@3.2.0",
+  "version": "1.0.0",
+  "main": "main",
+  "author": "jazz.Iron",
+  "license": "ISC",
   "workspaces": {
     "packages": [
       "packages/*"
@@ -13,10 +17,12 @@
     "combine": "yarn workspace @admin/combine",
     "hospital": "yarn workspace @admin/hospital",
     "build": "yarn workspaces foreach run build",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "test:all": "yarn workspaces foreach --parallel --include @common/components run test"
   },
   "devDependencies": {
     "@types/eslint": "^8",
+    "@types/node": "^17.0.25",
     "@types/prettier": "^2",
     "@types/react": "^17",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
@@ -24,7 +30,15 @@
     "@yarnpkg/sdks": "^3.0.0-rc.2",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-storybook": "^0.5.11",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.8",
     "prettier": "^2.6.2",
