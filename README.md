@@ -45,7 +45,7 @@ yarn plugin import typescript
  - lint-staged.config.js
    lint-staged 설정
 
- - monorepo-template.code-workspace
+ - react-yarn2-monorepo.code-workspace
    [multi-root workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) 설정파일
 
  - tsconfig.json
