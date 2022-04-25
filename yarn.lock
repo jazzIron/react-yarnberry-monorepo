@@ -1588,7 +1588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.17.9
   resolution: "@babel/runtime@npm:7.17.9"
   dependencies:
@@ -1681,6 +1681,7 @@ __metadata:
     "@babel/preset-typescript": ^7.16.7
     "@babel/runtime": ^7.16.7
     "@common/styles": "workspace:*"
+    "@common/utils": "workspace:*"
     "@emotion/core": ^11.0.0
     "@emotion/jest": ^11.9.1
     "@emotion/react": ^11.9.0
@@ -1691,6 +1692,7 @@ __metadata:
     "@storybook/addon-links": ^6.4.17
     "@storybook/addon-viewport": ^6.4.17
     "@storybook/builder-webpack5": ^6.4.17
+    "@storybook/client-api": ^6.4.22
     "@storybook/manager-webpack5": ^6.4.17
     "@storybook/react": ^6.4.17
     "@testing-library/jest-dom": ^5.16.1
@@ -1698,6 +1700,7 @@ __metadata:
     "@testing-library/user-event": ^14.1.1
     "@types/express": ^4
     "@types/jest": ^27.4.1
+    "@types/lodash": ^4
     "@types/module-alias": ^2
     "@types/react": ^17
     "@types/react-dom": ^17.0.2
@@ -1705,10 +1708,14 @@ __metadata:
     babel-loader: 8.2.3
     eslint-import-resolver-alias: ^1.1.2
     express: ^4.17.3
+    i18next: ^21.6.16
     jest: ^27.4.7
     jest-canvas-mock: ^2.3.1
+    lodash: ^4.17.21
     react: 17.0.2
     react-dom: ^17.0.2
+    react-hook-form: ^7.30.0
+    react-i18next: ^11.16.7
     react-router-dom: ^6.2.1
     regenerator-runtime: ^0.13.9
     ts-jest: ^27.1.3
@@ -1742,16 +1749,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@common/untils@workspace:packages/common-utils":
+"@common/utils@workspace:*, @common/utils@workspace:packages/common-utils":
   version: 0.0.0-use.local
-  resolution: "@common/untils@workspace:packages/common-utils"
+  resolution: "@common/utils@workspace:packages/common-utils"
   dependencies:
     "@babel/core": ^7.16.7
     "@babel/plugin-transform-runtime": ^7.16.8
     "@babel/preset-env": ^7.16.11
     "@babel/preset-typescript": ^7.16.7
     "@babel/runtime": ^7.17.9
+    "@common/components": "workspace:*"
     "@types/jest": ^27.4.1
+    "@types/lodash": ^4
+    lodash: ^4.17.21
     regenerator-runtime: ^0.13.9
     typescript: 4.6.3
     typescript-styled-plugin: ^0.18.2
@@ -3254,7 +3264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/client-api@npm:6.4.22":
+"@storybook/client-api@npm:6.4.22, @storybook/client-api@npm:^6.4.22":
   version: 6.4.22
   resolution: "@storybook/client-api@npm:6.4.22"
   dependencies:
@@ -4326,6 +4336,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4":
+  version: 4.14.182
+  resolution: "@types/lodash@npm:4.14.182"
+  checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
   languageName: node
   linkType: hard
 
@@ -10690,7 +10707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-escaper@npm:^2.0.0":
+"html-escaper@npm:^2.0.0, html-escaper@npm:^2.0.2":
   version: 2.0.2
   resolution: "html-escaper@npm:2.0.2"
   checksum: d2df2da3ad40ca9ee3a39c5cc6475ef67c8f83c234475f24d8e9ce0dc80a2c82df8e1d6fa78ddd1e9022a586ea1bd247a615e80a5cd9273d90111ddda7d9e974
@@ -10728,6 +10745,15 @@ __metadata:
   bin:
     html-minifier-terser: cli.js
   checksum: ac52c14006476f773204c198b64838477859dc2879490040efab8979c0207424da55d59df7348153f412efa45a0840a1ca3c757bf14767d23a15e3e389d37a93
+  languageName: node
+  linkType: hard
+
+"html-parse-stringify@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "html-parse-stringify@npm:3.0.1"
+  dependencies:
+    void-elements: 3.1.0
+  checksum: 334fdebd4b5c355dba8e95284cead6f62bf865a2359da2759b039db58c805646350016d2017875718bc3c4b9bf81a0d11be5ee0cf4774a3a5a7b97cde21cfd67
   languageName: node
   linkType: hard
 
@@ -10948,6 +10974,15 @@ __metadata:
   bin:
     husky: lib/bin.js
   checksum: c6ec4af63da2c9522da8674a20ad9b48362cc92704896cc8a58c6a2a39d797feb2b806f93fbd83a6d653fbdceb2c3b6e0b602c6b2e8565206ffc2882ef7db9e9
+  languageName: node
+  linkType: hard
+
+"i18next@npm:^21.6.16":
+  version: 21.6.16
+  resolution: "i18next@npm:21.6.16"
+  dependencies:
+    "@babel/runtime": ^7.17.2
+  checksum: f210130fd835ebd90bfdc6a497d3c1d992261174e030e995a03d070b099acba680e495a376eb9255bb8eb68b4e518fe8ea96ec71507e194fd043aecb3397c9a2
   languageName: node
   linkType: hard
 
@@ -15766,6 +15801,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.30.0":
+  version: 7.30.0
+  resolution: "react-hook-form@npm:7.30.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 7af442c80e1d8e04b6345f4f46177974d82488e81cc12b165d6ff1c69ba0f6234bd2ef0f7b51dda34f77b36fe74464815bbb0f4c77dc2cd9793f8e89d528ae25
+  languageName: node
+  linkType: hard
+
+"react-i18next@npm:^11.16.7":
+  version: 11.16.7
+  resolution: "react-i18next@npm:11.16.7"
+  dependencies:
+    "@babel/runtime": ^7.14.5
+    html-escaper: ^2.0.2
+    html-parse-stringify: ^3.0.1
+  peerDependencies:
+    i18next: ">= 19.0.0"
+    react: ">= 16.8.0"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 666594e20dcff000294e904b6ea36f4e5fa2d3b7cebf8c78f04ec3b96ff52d9ad2931adb0d6865ccbd870cc8a782f76a77dfc134653647c8fd73c4217a65e0e6
+  languageName: node
+  linkType: hard
+
 "react-inspector@npm:^5.1.0":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1"
@@ -18969,6 +19032,13 @@ __metadata:
   version: 1.1.2
   resolution: "vm-browserify@npm:1.1.2"
   checksum: 10a1c50aab54ff8b4c9042c15fc64aefccce8d2fb90c0640403242db0ee7fb269f9b102bdb69cfb435d7ef3180d61fd4fb004a043a12709abaf9056cfd7e039d
+  languageName: node
+  linkType: hard
+
+"void-elements@npm:3.1.0":
+  version: 3.1.0
+  resolution: "void-elements@npm:3.1.0"
+  checksum: 0390f818107fa8fce55bb0a5c3f661056001c1d5a2a48c28d582d4d847347c2ab5b7f8272314cac58acf62345126b6b09bea623a185935f6b1c3bbce0dfd7f7f
   languageName: node
   linkType: hard
 
