@@ -1742,6 +1742,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@common/untils@workspace:packages/common-utils":
+  version: 0.0.0-use.local
+  resolution: "@common/untils@workspace:packages/common-utils"
+  dependencies:
+    "@babel/core": ^7.16.7
+    "@babel/plugin-transform-runtime": ^7.16.8
+    "@babel/preset-env": ^7.16.11
+    "@babel/preset-typescript": ^7.16.7
+    "@babel/runtime": ^7.17.9
+    "@types/jest": ^27.4.1
+    regenerator-runtime: ^0.13.9
+    typescript: 4.6.3
+    typescript-styled-plugin: ^0.18.2
+  languageName: unknown
+  linkType: soft
+
 "@cspotcode/source-map-consumer@npm:0.8.0":
   version: 0.8.0
   resolution: "@cspotcode/source-map-consumer@npm:0.8.0"

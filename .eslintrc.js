@@ -132,6 +132,16 @@ module.exports = {
       },
     },
     {
+      files: ['packages/common-untils/**/*.ts?(x)', 'packages/common-untils/**/*.js?(x)'],
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: path.resolve(`${__dirname}/packages/common-untils/tsconfig.json`),
+          },
+        },
+      },
+    },
+    {
       files: ['packages/admin-combine/**/*.ts?(x)', 'packages/admin-combine/**/*.js?(x)'],
       settings: {
         'import/resolver': {

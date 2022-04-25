@@ -35,6 +35,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@common/styles",\
         "reference": "workspace:packages/common-styles"\
+      },\
+      {\
+        "name": "@common/untils",\
+        "reference": "workspace:packages/common-utils"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -44,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@admin/hospital", ["workspace:packages/admin-hospital"]],\
       ["@common/components", ["workspace:packages/common-components"]],\
       ["@common/styles", ["workspace:packages/common-styles"]],\
+      ["@common/untils", ["workspace:packages/common-utils"]],\
       ["react-yarn2-monorepo", ["workspace:."]]\
     ],\
     "fallbackPool": [\
@@ -3156,6 +3161,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-loader", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:8.2.3"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:17.0.2"],\
+            ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
+            ["typescript-styled-plugin", "npm:0.18.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@common/untils", [\
+        ["workspace:packages/common-utils", {\
+          "packageLocation": "./packages/common-utils/",\
+          "packageDependencies": [\
+            ["@common/untils", "workspace:packages/common-utils"],\
+            ["@babel/core", "npm:7.17.9"],\
+            ["@babel/plugin-transform-runtime", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:7.17.0"],\
+            ["@babel/preset-env", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:7.16.11"],\
+            ["@babel/preset-typescript", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:7.16.7"],\
+            ["@babel/runtime", "npm:7.17.9"],\
+            ["@types/jest", "npm:27.4.1"],\
+            ["regenerator-runtime", "npm:0.13.9"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["typescript-styled-plugin", "npm:0.18.2"]\
           ],\
