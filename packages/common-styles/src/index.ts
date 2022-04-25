@@ -1,5 +1,5 @@
-import { ITheme } from './types';
-import defaultTheme from './defaultTheme';
+import { ITheme } from './emotion/types';
+import defaultTheme from './emotion/defaultTheme';
 
 export type ThemeType = ITheme;
 

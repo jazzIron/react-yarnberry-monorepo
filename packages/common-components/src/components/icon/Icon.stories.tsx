@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Icon, ICON_LIST } from '../icon';
+import { Icon, ICON_LIST } from '.';
 
 export default {
   title: `Components/Icon`,
