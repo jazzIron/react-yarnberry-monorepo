@@ -1,4 +1,4 @@
-import { Button } from '@common/components';
+import { Button } from '@common/components/src/components/button';
 
 export function Test() {
   console.log('test item');
