@@ -26,13 +26,14 @@ __metadata:
     "@types/react": ^17
     "@types/react-dom": ^17.0.2
     "@types/react-transition-group": ^4.4.4
+    axios: ^0.27.2
     babel-jest: ^27.4.6
     babel-loader: ^8.2.3
     child_process: ^1.0.2
     clean-webpack-plugin: ^4.0.0
     cross-env: ^7.0.3
     css-loader: ^6.5.1
-    fork-ts-checker-webpack-plugin: ^7.0.0
+    fork-ts-checker-webpack-plugin: ^7.2.7
     html-webpack-plugin: ^5.5.0
     mini-css-extract-plugin: ^2.5.3
     node-sass: ^7.0.1
@@ -41,6 +42,7 @@ __metadata:
     react-dom: ^17.0.2
     react-router-dom: ^6.2.1
     react-test-renderer: ^17.0.2
+    recoil: ^0.7.2
     sass-loader: ^12.4.0
     style-loader: ^3.3.1
     terser-webpack-plugin: ^5.3.0
@@ -51,7 +53,7 @@ __metadata:
     webpack: ^5.67.0
     webpack-bundle-analyzer: ^4.5.0
     webpack-cli: ^4.9.2
-    webpack-dev-server: ^4.7.3
+    webpack-dev-server: ^4.8.1
     webpack-merge: ^5.8.0
   languageName: unknown
   linkType: soft
@@ -6011,6 +6013,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.27.2":
+  version: 0.27.2
+  resolution: "axios@npm:0.27.2"
+  dependencies:
+    follow-redirects: ^1.14.9
+    form-data: ^4.0.0
+  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^2.2.0":
   version: 2.2.0
   resolution: "axobject-query@npm:2.2.0"
@@ -9658,7 +9670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9":
   version: 1.14.9
   resolution: "follow-redirects@npm:1.14.9"
   peerDependenciesMeta:
@@ -9738,9 +9750,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fork-ts-checker-webpack-plugin@npm:^7.0.0":
-  version: 7.2.6
-  resolution: "fork-ts-checker-webpack-plugin@npm:7.2.6"
+"fork-ts-checker-webpack-plugin@npm:^7.2.7":
+  version: 7.2.7
+  resolution: "fork-ts-checker-webpack-plugin@npm:7.2.7"
   dependencies:
     "@babel/code-frame": ^7.16.7
     chalk: ^4.1.2
@@ -9760,7 +9772,7 @@ __metadata:
   peerDependenciesMeta:
     vue-template-compiler:
       optional: true
-  checksum: d74e8b22e3e4d5159061d93f519d7eb795bafac4b9a993b72eed952a714144d89c8a706414b231a89c69cabf29e00e1fb26d7060e3b5577c08cabb5a3d5a7697
+  checksum: 2aaac6f72c7326c0ac696fe0e630bdd2887e40d5bc8035862851b1abf4132c85808ddc967472a6846764b2b7d38c6f5408088c086188f149db759f2b233e51f5
   languageName: node
   linkType: hard
 
@@ -9772,6 +9784,17 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: b019e8d35c8afc14a2bd8a7a92fa4f525a4726b6d5a9740e8d2623c30e308fbb58dc8469f90415a856698933c8479b01646a9dff33c87cc4e76d72aedbbf860d
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
   languageName: node
   linkType: hard
 
@@ -10339,6 +10362,13 @@ __metadata:
   dependencies:
     duplexer: ^0.1.2
   checksum: 2df97f359696ad154fc171dcb55bc883fe6e833bca7a65e457b9358f3cb6312405ed70a8da24a77c1baac0639906cd52358dc0ce2ec1a937eaa631b934c94194
+  languageName: node
+  linkType: hard
+
+"hamt_plus@npm:1.0.2":
+  version: 1.0.2
+  resolution: "hamt_plus@npm:1.0.2"
+  checksum: af26ea32db03009019cc83dfa9411521a2fa16079443de1a502c9be46d8b3c975acda8ed93fc5750ef08d3186d35901e2d8cfe717dd54bea67b358601fa74e4c
   languageName: node
   linkType: hard
 
@@ -16107,6 +16137,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recoil@npm:^0.7.2":
+  version: 0.7.2
+  resolution: "recoil@npm:0.7.2"
+  dependencies:
+    hamt_plus: 1.0.2
+  peerDependencies:
+    react: ">=16.13.1"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 2ad0c2052fd33ee358e3b448fd36ea6d4b37e69ace65ff44124605171c4794e4f167215209731aac3d45d42ea9f4c67e9c5a0704ff04ab94b64bcca96d5f59a3
+  languageName: node
+  linkType: hard
+
 "redent@npm:^3.0.0":
   version: 3.0.0
   resolution: "redent@npm:3.0.0"
@@ -19310,7 +19356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:^4.7.3":
+"webpack-dev-server@npm:^4.8.1":
   version: 4.8.1
   resolution: "webpack-dev-server@npm:4.8.1"
   dependencies:

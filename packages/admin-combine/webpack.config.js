@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 이전 빌드
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 여러 css파일을 하나의 css 파일로 병합
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //  HTML 파일 생성을 단순화
 const TerserPlugin = require('terser-webpack-plugin'); // console.log 제거 옵션
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin'); // ts-loader의 성능을 향상
 
 const mode = process.env.NODE_ENV || 'development';
 
@@ -17,11 +18,23 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/',
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 3000,
+    liveReload: true,
+    hot: false,
+    compress: true,
+    historyApiFallback: true,
+  },
   resolve: {
     // 확장자를 순서대로 해석
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       '@src': path.resolve(__dirname, 'src/'),
+      '@types': path.resolve(__dirname, 'src/@types'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@features': path.resolve(__dirname, 'src/features'),
@@ -108,5 +121,6 @@ module.exports = {
           }),
         ]
       : []),
+    // new ForkTsCheckerWebpackPlugin(),
   ],
 };
