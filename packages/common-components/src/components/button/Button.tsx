@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme as Themes } from '@common/styles';
-// import { Icon, ICON_LIST } from '../icon';
+import { Icon, ICON_LIST } from '../icon';
 import { BUTTON_SIZE, BUTTON_THEME, IButton, IButtonStyled } from './Button_types';
 
 export function Button({
@@ -26,7 +26,7 @@ export function Button({
       buttonThemeStyles={buttonThemeStyles}
       buttonSizeStyles={buttonSizeStyleds}
     >
-      {/* {icon && <Icon icon={ICON_LIST[icon]} />} */}
+      {icon && <Icon icon={ICON_LIST[icon]} />}
       {label}
     </ButtonStyled>
   );

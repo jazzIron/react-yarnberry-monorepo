@@ -73,7 +73,7 @@ module.exports = {
             position: 'after',
           },
         ],
-        pathGroupsExcludedImportTypes: ['react'],
+        //pathGroupsExcludedImportTypes: ['react'],
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
