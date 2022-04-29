@@ -1,4 +1,6 @@
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
   core: {
     builder: 'webpack5',
@@ -12,16 +14,27 @@ module.exports = {
   features: {
     babelModeV7: true,
   },
-  webpackFinal: async (config) => {
+  webpackFinal: async (config, { configType }) => {
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions,
+      }),
+    ];
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       loader: require.resolve('babel-loader'),
     });
-    config.resolve.alias = {
-      '@src': path.resolve(__dirname, '../src/'),
-      '@components': path.resolve(__dirname, '../src/components'),
-      '@assets': path.resolve(__dirname, '../src/assets'),
-    };
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
+    });
+    // config.resolve.alias = {
+    //   '@src': path.resolve(__dirname, '../src/'),
+    //   '@components': path.resolve(__dirname, '../src/components'),
+    //   '@assets': path.resolve(__dirname, '../src/assets'),
+    // };
 
     return config;
   },
