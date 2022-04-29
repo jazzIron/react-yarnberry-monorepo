@@ -9,6 +9,8 @@ import { Icon, ICON_LIST } from '../icon';
 import { IFileDragUpload, IFileTypes } from './FileDragUpload_types';
 import { useFileDragUpload } from './useFileDragUpload';
 
+import { theme as Themes, colors, fonts, cssx } from '@common/styles';
+
 export function FileDragUpload({
   id,
   maxLength,
@@ -121,10 +123,10 @@ FileDragUpload.defaultProps = {
 };
 
 export const FileDragStyled = styled.div<{ disabled: boolean; haveFile: boolean }>`
-  ${({ disabled, theme }) =>
+  ${({ disabled }) =>
     disabled
       ? css`
-          background-color: ${theme.colors.gray_10};
+          background-color: ${Themes.colors.gray_10};
           label {
             div {
               opacity: 0.5;
@@ -133,7 +135,7 @@ export const FileDragStyled = styled.div<{ disabled: boolean; haveFile: boolean 
           }
         `
       : css`
-          background-color: ${theme.colors.gray_11};
+          background-color: ${Themes.colors.gray_11};
         `}
   position: relative;
 `;
@@ -156,7 +158,7 @@ export const InputLabelStyled = styled.label<{ haveFile: boolean; isDragging: bo
     `}
   flex-grow: 0;
   border-radius: 2px;
-  border: solid 1px ${({ theme }) => theme.colors.gray_07};
+  border: solid 1px ${colors.gray_07};
 
   justify-content: center;
   align-items: center;
@@ -164,8 +166,8 @@ export const InputLabelStyled = styled.label<{ haveFile: boolean; isDragging: bo
 
   span {
     height: 20px;
-    ${({ theme }) => theme.fonts.body_03};
-    color: ${({ theme }) => theme.colors.gray_05};
+    ${fonts.body_03};
+    color: ${colors.gray_05};
     text-decoration: none;
   }
 
@@ -185,8 +187,8 @@ export const InputLabelStyled = styled.label<{ haveFile: boolean; isDragging: bo
 export const DropFilesWrapper = styled.ul<{ disabled: boolean; multiple: boolean }>`
   padding: 12px;
   border-radius: 2px;
-  border: solid 1px ${({ theme }) => theme.colors.gray_07};
-  /* background-color: ${({ theme }) => theme.colors.gray_11}; */
+  border: solid 1px ${colors.gray_07};
+  /* background-color: ${colors.gray_11}; */
   list-style: none;
   overflow-y: auto;
   /* pointer-events: ${(props) => (props.disabled ? 'none' : '')}; */
@@ -212,10 +214,10 @@ export const DropFileStyled = styled.li`
   height: 32px;
   padding: 6px 8px;
   ${({ theme }) => css`
-    ${theme.cssx.flexBtw}
-    ${theme.fonts.body_03}
-    background-color: ${theme.colors.gray_10};
-    color: ${theme.colors.ays_sub_01};
+    ${cssx.flexBtw}
+    ${fonts.body_03}
+    background-color: ${colors.gray_10};
+    color: ${colors.ays_sub_01};
   `}
 
   & + li {

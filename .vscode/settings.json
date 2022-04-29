@@ -10,7 +10,7 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": [
     "source.addMissingImports",
-    "source.fixAll.eslint",
+    "source.fixAll.eslint"
   ],
   "eslint.nodePath": ".yarn/sdks",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
@@ -26,5 +26,5 @@
   },
   "powermode.enabled": true,
   "powermode.presets": "particles",
-  "powermode.shake.enabled": false,
+  "powermode.shake.enabled": false
 }

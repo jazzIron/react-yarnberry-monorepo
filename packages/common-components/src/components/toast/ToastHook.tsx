@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { toast, UpdateOptions } from 'react-toastify';
 import { IToast } from './Toast_types';
 
-// TODO: 오류 수정 필요
 export function ToastHook() {
   const [toastId, setToastId] = useState<string | number>();
   const DELAY = 0;
@@ -46,7 +45,6 @@ export function ToastHook() {
   };
 
   return {
-    toast,
     toastId,
     toastDismiss,
     toastMake,

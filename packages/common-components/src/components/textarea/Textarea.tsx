@@ -60,6 +60,7 @@ Textarea.defaultProps = {
   readOnly: false,
   disabled: false,
   rows: 5,
+  value: '',
 };
 
 interface ITextAreaStyled {

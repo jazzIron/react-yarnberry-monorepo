@@ -1790,6 +1790,7 @@ __metadata:
     jest-canvas-mock: ^2.3.1
     lodash: ^4.17.21
     react: 17.0.2
+    react-daum-postcode: ^3.0.1
     react-dom: ^17.0.2
     react-hook-form: ^7.30.0
     react-i18next: ^11.16.7
@@ -5393,6 +5394,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/nm@npm:^4.0.0-rc.3":
+  version: 4.0.0-rc.3
+  resolution: "@yarnpkg/nm@npm:4.0.0-rc.3"
+  dependencies:
+    "@yarnpkg/core": ^4.0.0-rc.3
+    "@yarnpkg/fslib": ^3.0.0-rc.3
+  checksum: c2206090cb6084f19b5e74bdef791a79197d189cc13cf5baf16a275f1659fe52b06e07dfeca70aa338a952b8b4ebcb4b9cd8afdc29aaeea2b10e5c76913d3fdf
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/parsers@npm:^3.0.0-rc.3":
   version: 3.0.0-rc.3
   resolution: "@yarnpkg/parsers@npm:3.0.0-rc.3"
@@ -5400,6 +5411,21 @@ __metadata:
     js-yaml: ^3.10.0
     tslib: ^1.13.0
   checksum: 8d3d51280f0ba12d181bd88ab98c5cc77198a95f3f7c54d6204e1de167d6c15a5350950e82039d03e8df62e5e81edde4569932515080f9cce6c7990a7d017df9
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/pnpify@npm:^4.0.0-rc.3":
+  version: 4.0.0-rc.3
+  resolution: "@yarnpkg/pnpify@npm:4.0.0-rc.3"
+  dependencies:
+    "@yarnpkg/core": ^4.0.0-rc.3
+    "@yarnpkg/fslib": ^3.0.0-rc.3
+    "@yarnpkg/nm": ^4.0.0-rc.3
+    clipanion: ^3.2.0-rc.10
+    tslib: ^1.13.0
+  bin:
+    pnpify: ./lib/cli.js
+  checksum: 69e06089158f3582a511ab662b786f04325e6406bf200b238f4f8417e6229c787ec567d6d5c3fad204d1bfa90cf60b29db11d5ac9a53e314789da2f0b0ef2b54
   languageName: node
   linkType: hard
 
@@ -16111,6 +16137,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-daum-postcode@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "react-daum-postcode@npm:3.0.1"
+  dependencies:
+    prop-types: ^15.7.2
+    react: ^17.0.2
+  checksum: 05366e7fb0722a8f3a80b2b3c012ec84ceffa4d4aea9ee718663726219463cc2894d83ac194b7fab8177a15f267ee4d1503099071dc5c8ae2b053a6e3df05cad
+  languageName: node
+  linkType: hard
+
 "react-docgen-typescript@npm:^2.0.0":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -16447,6 +16483,7 @@ __metadata:
     "@types/react": ^17
     "@typescript-eslint/eslint-plugin": ^5.20.0
     "@typescript-eslint/parser": ^5.20.0
+    "@yarnpkg/pnpify": ^4.0.0-rc.3
     "@yarnpkg/sdks": ^3.0.0-rc.2
     eslint: ^8.13.0
     eslint-config-prettier: ^8.5.0
@@ -16468,7 +16505,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react@npm:17.0.2, react@npm:^17":
+"react@npm:17.0.2, react@npm:^17, react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:

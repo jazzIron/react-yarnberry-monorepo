@@ -1,12 +1,11 @@
 import { isEmpty } from 'lodash';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
-// import { TOAST_OPTION_POSITION, TOAST_TYPE } from '../toast';
-// import { ToastHook } from '../toast/ToastHook';
+import { TOAST_OPTION_POSITION, TOAST_TYPE } from '../toast';
+import { ToastHook } from '../toast/ToastHook';
 
 import { IFileTypes, IUseFileDrag } from './FileDragUpload_types';
 
-// TODO: toastHook 설정
 export function useFileDragUpload({
   maxLength,
   defaultFile,
@@ -14,7 +13,7 @@ export function useFileDragUpload({
   isClear,
   changeCallback,
 }: IUseFileDrag) {
-  // const { toastMake } = ToastHook();
+  const { toastMake } = ToastHook();
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragRef = useRef<HTMLLabelElement | null>(null);
@@ -102,17 +101,16 @@ export function useFileDragUpload({
   );
 
   const setToastMsg = (msg: string) => {
-    return true;
-    // if (!isEmpty(msg)) {
-    //   toastMake({
-    //     content: msg,
-    //     type: TOAST_TYPE.ERROR,
-    //     options: {
-    //       autoClose: true,
-    //       position: TOAST_OPTION_POSITION.TOP_CENTER,
-    //     },
-    //   });
-    // }
+    if (!isEmpty(msg)) {
+      toastMake({
+        content: msg,
+        type: TOAST_TYPE.ERROR,
+        options: {
+          autoClose: true,
+          position: TOAST_OPTION_POSITION.TOP_CENTER,
+        },
+      });
+    }
   };
 
   const handleFilterFile = (index: number) => {
