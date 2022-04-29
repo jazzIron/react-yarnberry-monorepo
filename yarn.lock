@@ -22,11 +22,15 @@ __metadata:
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
+    "@types/axios-mock-adapter": ^1.10.0
     "@types/jest": ^27.4.1
+    "@types/lodash": ^4
+    "@types/node": ^17.0.30
     "@types/react": ^17
     "@types/react-dom": ^17.0.2
     "@types/react-transition-group": ^4.4.4
     axios: ^0.27.2
+    axios-mock-adapter: ^1.20.0
     babel-jest: ^27.4.6
     babel-loader: ^8.2.3
     child_process: ^1.0.2
@@ -35,9 +39,11 @@ __metadata:
     css-loader: ^6.5.1
     fork-ts-checker-webpack-plugin: ^7.2.7
     html-webpack-plugin: ^5.5.0
+    lodash: ^4.17.21
     mini-css-extract-plugin: ^2.5.3
     node-sass: ^7.0.1
     optimize-css-assets-webpack-plugin: ^6.0.1
+    process: ^0.11.10
     react: ^17
     react-dom: ^17.0.2
     react-router-dom: ^6.2.1
@@ -1706,6 +1712,7 @@ __metadata:
     "@types/module-alias": ^2
     "@types/react": ^17
     "@types/react-dom": ^17.0.2
+    "@types/react-modal": ^3
     "@types/react-transition-group": ^4.4.4
     babel-loader: 8.2.3
     eslint-import-resolver-alias: ^1.1.2
@@ -1718,6 +1725,7 @@ __metadata:
     react-dom: ^17.0.2
     react-hook-form: ^7.30.0
     react-i18next: ^11.16.7
+    react-modal: ^3.15.1
     react-router-dom: ^6.2.1
     regenerator-runtime: ^0.13.9
     ts-jest: ^27.1.3
@@ -4047,6 +4055,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/axios-mock-adapter@npm:^1.10.0":
+  version: 1.10.0
+  resolution: "@types/axios-mock-adapter@npm:1.10.0"
+  dependencies:
+    axios-mock-adapter: "*"
+  checksum: 0ab9a3fbbd5cd1b4d8f2f87b8040fcd859337ddd73a563a56360082f29dca1e27427ed0f642cd5e55ac41960206e43e8c68815b3bb18bd4d8d9a3c380bc5dea6
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
   version: 7.1.19
   resolution: "@types/babel__core@npm:7.1.19"
@@ -4409,6 +4426,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^17.0.30":
+  version: 17.0.30
+  resolution: "@types/node@npm:17.0.30"
+  checksum: b3cd2db6474aae3ddac5a312f340f6e4ca200429371e62cb74698fe7f23d7414d0200f643204ddfaa797846328539359e3797d7f2baaf3cdd643b159cf53baa6
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.1
   resolution: "@types/normalize-package-data@npm:2.4.1"
@@ -4485,6 +4509,15 @@ __metadata:
   dependencies:
     "@types/react": ^17
   checksum: 7b90372bd7207d3860e1043ebfe10fd21fbd9ec3417a29593ca14359774830c888ba4ebb25cf0510628607496f8d35b09d23d329ea709b9311f5866185c5fd67
+  languageName: node
+  linkType: hard
+
+"@types/react-modal@npm:^3":
+  version: 3.13.1
+  resolution: "@types/react-modal@npm:3.13.1"
+  dependencies:
+    "@types/react": "*"
+  checksum: b0ad403e0051a2882e9086c6006cc342901b1c90caf760893b31717a5cbc04f86cc1ea7b5ce12a2c8350c9c09e9b344de3783404e70b7c7ea6a037d0ffd70e99
   languageName: node
   linkType: hard
 
@@ -6010,6 +6043,30 @@ __metadata:
   version: 4.4.1
   resolution: "axe-core@npm:4.4.1"
   checksum: ad14c5b71059dc3d24ef2519b8cd96e98b4a572379396201ce449d1c4262181821d6ca9550df65b22371faf06d28bbe94d391fe5675f2a08e6550f7b5da8416d
+  languageName: node
+  linkType: hard
+
+"axios-mock-adapter@npm:*, axios-mock-adapter@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "axios-mock-adapter@npm:1.20.0"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    is-blob: ^2.1.0
+    is-buffer: ^2.0.5
+  peerDependencies:
+    axios: ">= 0.9.0"
+  checksum: 93b366b135d09a179d0d0562c705cb0104f0e92a8839a45abedc405322ca01eaa8b9e859c087a8d366d6ab1cac42d40b845ae40b8a9a0dd77110097570836f88
+  languageName: node
+  linkType: hard
+
+"axios-mock-adapter@npm:1.10.0":
+  version: 1.10.0
+  resolution: "axios-mock-adapter@npm:1.10.0"
+  dependencies:
+    deep-equal: ^1.0.1
+  peerDependencies:
+    axios: ">= 0.9.0"
+  checksum: c0040d48353d6b03add7e7b0b01afeaee65be445c974a894d3c9f03403e274c9ee574210a1654325da5607fbd7e536a7c5491eb1fdcb988000ff78041b0adff4
   languageName: node
   linkType: hard
 
@@ -8115,6 +8172,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"deep-equal@npm:^1.0.1":
+  version: 1.1.1
+  resolution: "deep-equal@npm:1.1.1"
+  dependencies:
+    is-arguments: ^1.0.4
+    is-date-object: ^1.0.1
+    is-regex: ^1.0.4
+    object-is: ^1.0.1
+    object-keys: ^1.1.1
+    regexp.prototype.flags: ^1.2.0
+  checksum: f92686f2c5bcdf714a75a5fa7a9e47cb374a8ec9307e717b8d1ce61f56a75aaebf5619c2a12b8087a705b5a2f60d0292c35f8b58cb1f72e3268a3a15cab9f78d
+  languageName: node
+  linkType: hard
+
 "deep-is@npm:^0.1.3, deep-is@npm:~0.1.3":
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
@@ -9267,6 +9338,13 @@ __metadata:
     signal-exit: ^3.0.3
     strip-final-newline: ^2.0.0
   checksum: fba9022c8c8c15ed862847e94c252b3d946036d7547af310e344a527e59021fd8b6bb0723883ea87044dc4f0201f949046993124a42ccb0855cae5bf8c786343
+  languageName: node
+  linkType: hard
+
+"exenv@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "exenv@npm:1.2.2"
+  checksum: a894f3b60ab8419e0b6eec99c690a009c8276b4c90655ccaf7d28faba2de3a6b93b3d92210f9dc5efd36058d44f04098f6bbccef99859151104bfd49939904dc
   languageName: node
   linkType: hard
 
@@ -11251,7 +11329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-arguments@npm:^1.1.0":
+"is-arguments@npm:^1.0.4, is-arguments@npm:^1.1.0":
   version: 1.1.1
   resolution: "is-arguments@npm:1.1.1"
   dependencies:
@@ -11295,6 +11373,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-blob@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-blob@npm:2.1.0"
+  checksum: ce24917bf50a52736e37702a14bc729a0e1eab6bf61ac0b8e6ee86caf33d73eba297131736f8e54615732d08168859493ba7ced4fc840bb5b7c2ae21a5de6861
+  languageName: node
+  linkType: hard
+
 "is-boolean-object@npm:^1.1.0":
   version: 1.1.2
   resolution: "is-boolean-object@npm:1.1.2"
@@ -11312,7 +11397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-buffer@npm:^2.0.0":
+"is-buffer@npm:^2.0.0, is-buffer@npm:^2.0.5":
   version: 2.0.5
   resolution: "is-buffer@npm:2.0.5"
   checksum: 764c9ad8b523a9f5a32af29bdf772b08eb48c04d2ad0a7240916ac2688c983bf5f8504bf25b35e66240edeb9d9085461f9b5dae1f3d2861c6b06a65fe983de42
@@ -11619,7 +11704,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-regex@npm:^1.1.2, is-regex@npm:^1.1.4":
+"is-regex@npm:^1.0.4, is-regex@npm:^1.1.2, is-regex@npm:^1.1.4":
   version: 1.1.4
   resolution: "is-regex@npm:1.1.4"
   dependencies:
@@ -14161,6 +14246,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object-is@npm:^1.0.1":
+  version: 1.1.5
+  resolution: "object-is@npm:1.1.5"
+  dependencies:
+    call-bind: ^1.0.2
+    define-properties: ^1.1.3
+  checksum: 989b18c4cba258a6b74dc1d74a41805c1a1425bce29f6cabb50dcb1a6a651ea9104a1b07046739a49a5bb1bc49727bcb00efd5c55f932f6ea04ec8927a7901fe
+  languageName: node
+  linkType: hard
+
 "object-keys@npm:^1.1.1":
   version: 1.1.1
   resolution: "object-keys@npm:1.1.1"
@@ -15893,6 +15988,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-lifecycles-compat@npm:^3.0.0":
+  version: 3.0.4
+  resolution: "react-lifecycles-compat@npm:3.0.4"
+  checksum: a904b0fc0a8eeb15a148c9feb7bc17cec7ef96e71188280061fc340043fd6d8ee3ff233381f0e8f95c1cf926210b2c4a31f38182c8f35ac55057e453d6df204f
+  languageName: node
+  linkType: hard
+
+"react-modal@npm:^3.15.1":
+  version: 3.15.1
+  resolution: "react-modal@npm:3.15.1"
+  dependencies:
+    exenv: ^1.2.0
+    prop-types: ^15.7.2
+    react-lifecycles-compat: ^3.0.0
+    warning: ^4.0.3
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+    react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+  checksum: ee99ca312c35bcec9ef0868babf970ce03c52801731e29be336bb6bdc867a1ecf00a73e1fb5bc3b1b1ef66ceb0c9b4a0199fadb85b1b9829f731409951b018f0
+  languageName: node
+  linkType: hard
+
 "react-popper-tooltip@npm:^3.1.1":
   version: 3.1.1
   resolution: "react-popper-tooltip@npm:3.1.1"
@@ -16216,7 +16333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexp.prototype.flags@npm:^1.4.1":
+"regexp.prototype.flags@npm:^1.2.0, regexp.prototype.flags@npm:^1.4.1":
   version: 1.4.3
   resolution: "regexp.prototype.flags@npm:1.4.3"
   dependencies:
@@ -19176,7 +19293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"warning@npm:^4.0.2":
+"warning@npm:^4.0.2, warning@npm:^4.0.3":
   version: 4.0.3
   resolution: "warning@npm:4.0.3"
   dependencies:

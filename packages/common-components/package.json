@@ -17,6 +17,7 @@
     "react": "17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.16.7",
+    "react-modal": "^3.15.1",
     "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
@@ -45,6 +46,7 @@
     "@types/module-alias": "^2",
     "@types/react": "^17",
     "@types/react-dom": "^17.0.2",
+    "@types/react-modal": "^3",
     "@types/react-transition-group": "^4.4.4",
     "babel-loader": "8.2.3",
     "eslint-import-resolver-alias": "^1.1.2",

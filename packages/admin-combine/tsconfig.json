@@ -20,9 +20,9 @@
       "@types/*": [
         "./src/@types/*"
       ],
-      "@components/*": [
-        "./src/components/*"
-      ],
+      // "@components/*": [
+      //   "./src/components/*"
+      // ],
       "@features/*": [
         "./src/features/*"
       ],
@@ -35,13 +35,13 @@
       "@utils/*": [
         "./src/utils/*"
       ],
-      "@assets/*": [
-        "./src/assets/*"
-      ]
+      // "@assets/*": [
+      //   "./src/assets/*"
+      // ]
     }
   },
   "include": [
-    "../common-styles/src/emotion.d.ts",
+    "../common-styles/src/emotion/emotion.d.ts",
     "src/**/*",
     "@types/*"
   ]

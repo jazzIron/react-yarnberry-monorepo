@@ -1,9 +1,14 @@
+import { Button } from '@common/components/src/components/button';
 import styled from '@emotion/styled';
 
 export function Login() {
+  const handleClick = () => true;
   return (
     <>
-      <LoginWrapper>로그인페이지 </LoginWrapper>
+      <LoginWrapper>
+        로그인페이지
+        <Button onClick={handleClick} label={'테스트'} />
+      </LoginWrapper>
     </>
   );
 }

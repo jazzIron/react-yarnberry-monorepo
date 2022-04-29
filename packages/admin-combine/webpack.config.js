@@ -33,6 +33,7 @@ module.exports = {
     // 확장자를 순서대로 해석
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
+      process: 'process/browser',
       '@src': path.resolve(__dirname, 'src/'),
       '@types': path.resolve(__dirname, 'src/@types'),
       '@store': path.resolve(__dirname, 'src/store'),
@@ -58,6 +59,11 @@ module.exports = {
             }),
           ]
         : [],
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   module: {
     rules: [
@@ -121,6 +127,9 @@ module.exports = {
           }),
         ]
       : []),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
     // new ForkTsCheckerWebpackPlugin(),
   ],
 };
