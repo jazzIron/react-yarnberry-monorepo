@@ -3243,6 +3243,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-loader-spinner", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:4.0.0"],\
             ["react-modal", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:3.15.1"],\
             ["react-router-dom", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:6.3.0"],\
+            ["react-toastify", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:8.1.0"],\
             ["regenerator-runtime", "npm:0.13.9"],\
             ["sass", "npm:1.48.0"],\
             ["sass-loader", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:12.4.0"],\
@@ -22126,6 +22127,51 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-toastify", [\
+        ["npm:8.1.0", {\
+          "packageLocation": "./.yarn/cache/react-toastify-npm-8.1.0-2a38351740-9d7b18c747.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "npm:8.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:8.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-4c6d672b2b/0/cache/react-toastify-npm-8.1.0-2a38351740-9d7b18c747.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:8.1.0"],\
+            ["@types/react", "npm:17.0.44"],\
+            ["@types/react-dom", "npm:17.0.16"],\
+            ["clsx", "npm:1.1.1"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:17.0.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:8.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-eb2d9fb46a/0/cache/react-toastify-npm-8.1.0-2a38351740-9d7b18c747.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:8.1.0"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["clsx", "npm:1.1.1"],\
+            ["react", null],\
+            ["react-dom", null]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-yarn2-monorepo", [\
         ["workspace:.", {\
           "packageLocation": "./",\
@@ -26130,6 +26176,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["mime-types", "npm:2.1.35"],\
             ["neo-async", "npm:2.6.2"],\
+            ["react-toastify", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:8.1.0"],\
             ["schema-utils", "npm:3.1.1"],\
             ["swiper", "npm:6.8.4"],\
             ["tapable", "npm:2.2.1"],\
@@ -26170,6 +26217,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["mime-types", "npm:2.1.35"],\
             ["neo-async", "npm:2.6.2"],\
+            ["react-toastify", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:8.1.0"],\
             ["schema-utils", "npm:3.1.1"],\
             ["swiper", "npm:6.8.4"],\
             ["tapable", "npm:2.2.1"],\
@@ -26210,6 +26258,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mkdirp", "npm:0.5.6"],\
             ["neo-async", "npm:2.6.2"],\
             ["node-libs-browser", "npm:2.2.1"],\
+            ["react-toastify", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:8.1.0"],\
             ["schema-utils", "npm:1.0.0"],\
             ["swiper", "npm:6.8.4"],\
             ["tapable", "npm:1.1.3"],\

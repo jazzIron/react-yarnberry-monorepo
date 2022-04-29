@@ -2,12 +2,15 @@ import { ThemeProvider } from '@emotion/react';
 import { DecoratorFn } from '@storybook/react';
 import { theme } from '@common/styles';
 import GlobalStyle from '@src/assets/GlobalStyle';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const decorators: DecoratorFn[] = [
   (Story) => (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Story />
+      <ToastContainer />
     </ThemeProvider>
   ),
 ];
