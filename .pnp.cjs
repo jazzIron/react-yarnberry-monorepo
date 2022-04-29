@@ -121,6 +121,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["clean-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:4.0.0"],\
             ["cross-env", "npm:7.0.3"],\
             ["css-loader", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:6.7.1"],\
+            ["env-cmd", "npm:10.1.0"],\
             ["fork-ts-checker-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:7.2.8"],\
             ["html-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:5.5.0"],\
             ["lodash", "npm:4.17.21"],\
@@ -12919,6 +12920,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/entities-npm-2.2.0-0fc8d5b2f7-19010dacaf.zip/node_modules/entities/",\
           "packageDependencies": [\
             ["entities", "npm:2.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["env-cmd", [\
+        ["npm:10.1.0", {\
+          "packageLocation": "./.yarn/cache/env-cmd-npm-10.1.0-85470635d6-efef550742.zip/node_modules/env-cmd/",\
+          "packageDependencies": [\
+            ["env-cmd", "npm:10.1.0"],\
+            ["commander", "npm:4.1.1"],\
+            ["cross-spawn", "npm:7.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\

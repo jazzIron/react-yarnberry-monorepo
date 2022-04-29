@@ -20,6 +20,12 @@
       "@types/*": [
         "./src/@types/*"
       ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      // "@components/*": [
+      //   "./src/components/*"
+      // ],
       "@features/*": [
         "./src/features/*"
       ],
@@ -31,7 +37,10 @@
       ],
       "@utils/*": [
         "./src/utils/*"
-      ]
+      ],
+      // "@assets/*": [
+      //   "./src/assets/*"
+      // ]
     }
   },
   "include": [

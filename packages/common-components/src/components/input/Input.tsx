@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { theme as Themes, cssx } from '@common/styles';
 import { IInput } from './Input_types';
 import { INPUT_TYPE } from './InputForm_types';
-import { ICON_LIST } from '@src/components/icon';
+import { ICON_LIST } from '../icon';
 
 export function Input({
   type,

@@ -3,7 +3,8 @@
   "packageManager": "yarn@3.2.0",
   "scripts": {
     "dev": "webpack serve --config ./webpack/webpack.config.dev.js --progress",
-    "start": "cross-env NODE_ENV=development webpack serve "
+    "build": "env-cmd -f .env.production webpack --progress",
+    "start": "env-cmd -f .env.development webpack serve "
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",
@@ -15,6 +16,7 @@
     "@types/node": "^17.0.30",
     "axios": "^0.27.2",
     "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
     "lodash": "^4.17.21",
     "react": "^17",
     "react-dom": "^17.0.2",

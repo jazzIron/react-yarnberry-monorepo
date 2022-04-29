@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button, BUTTON_SIZE, BUTTON_THEME } from '@common/components';
+import { Button, BUTTON_THEME } from '@common/components';
 
 export function Login() {
   const handleClick = () => true;

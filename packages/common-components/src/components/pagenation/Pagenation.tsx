@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
-import { ICON_LIST } from '@components/icon';
+import { ICON_LIST } from '../icon';
 import usePagenation from './usePagenation';
 import { IPagenation } from './Pagenation_types';
 import { css } from '@emotion/react';

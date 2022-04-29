@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { ILNG } from '@src/i18n';
 import { theme as Themes, colors, fonts } from '@common/styles';
 import { isEmpty } from 'lodash';
 import { useController } from 'react-hook-form';
@@ -7,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { RENDER_STATE } from '.';
 import { formValidate } from './FormUtil';
 import { IFormItem, IValidate } from './Form_types';
+import { ILNG } from '../../i18n';
 
 export function FormItem({ id, control, option, render, mode, useMessage, validate }: IFormItem) {
   const { t } = useTranslation();

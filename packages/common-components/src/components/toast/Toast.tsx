@@ -1,9 +1,9 @@
-import { Button } from '@components/button/Button';
-import { Space } from '@components/space/Space';
+import { Button } from '../button/Button';
+import { Space } from '../space/Space';
 import styled from '@emotion/styled';
 import { ToastHook } from './ToastHook';
 import { TOAST_TYPE, TOAST_OPTION_POSITION } from './Toast_types';
-import { SPACE_DIRECTION } from '@src/components/space';
+import { SPACE_DIRECTION } from '../space/Space_types';
 
 export function Toast(props: any) {
   const { toastId, toastDismiss, toastMake, toastActiveCheck, toastUpdate } = ToastHook();

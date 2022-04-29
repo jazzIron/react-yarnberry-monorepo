@@ -1,4 +1,4 @@
-import { RENDER_STATE } from '@src/components/form/Form_types';
+import { RENDER_STATE } from '../form/Form_types';
 
 export enum INPUT_TYPE {
   TEXT = 'text',

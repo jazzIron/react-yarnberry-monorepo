@@ -33,6 +33,16 @@ module.exports = {
   resolve: {
     // 확장자를 순서대로 해석
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    // alias: {
+    //   process: 'process/browser',
+    //   '@src': path.resolve(__dirname, 'src/'),
+    //   '@types': path.resolve(__dirname, 'src/@types'),
+    //   '@store': path.resolve(__dirname, 'src/store'),
+    //   '@features': path.resolve(__dirname, 'src/features'),
+    //   '@pages': path.resolve(__dirname, 'src/pages'),
+    //   '@layout': path.resolve(__dirname, 'src/layout'),
+    //   '@utils': path.resolve(__dirname, 'src/utils'),
+    // },
     plugins: [new TsconfigPathsPlugin()],
   },
   optimization: {

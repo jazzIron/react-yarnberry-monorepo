@@ -1,8 +1,5 @@
 import styled from '@emotion/styled';
-import { Input } from '@src/components/input/Input';
-
-import { Button } from '../button';
-
+import { Input } from '../input/Input';
 import { IPostCodeDetail } from './PostCode_types';
 
 export function PostCodeDetail({ value, codes, onChange, onComplete }: IPostCodeDetail) {

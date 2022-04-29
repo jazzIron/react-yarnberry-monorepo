@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css, SerializedStyles } from '@emotion/react';
 import { MouseEvent, useRef } from 'react';
 import { IInputForm, INPUT_FORM_THEME, INPUT_TYPE } from './InputForm_types';
-import { ICON_LIST } from '@src/components/icon';
+import { ICON_LIST } from '../icon';
 import { useState } from 'react';
 import { isNil } from 'lodash';
 import { theme as Themes, colors, fonts, cssx } from '@common/styles';
