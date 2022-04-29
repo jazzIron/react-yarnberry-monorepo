@@ -32,7 +32,8 @@
         },
     },
     "include": [
-        "../common-styles/src/emotion/emotion.d.ts",
+        "../common-styles/src/emotion.d.ts",
+        "**/*",
         "src/**/*",
         "src/**/*.spec.js",
         "src/**/*.json",

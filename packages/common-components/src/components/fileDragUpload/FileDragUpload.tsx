@@ -178,7 +178,7 @@ export const InputLabelStyled = styled.label<{ haveFile: boolean; isDragging: bo
   ${({ isDragging, theme }) =>
     isDragging
       ? css`
-          background-color: ${theme.colors.gray1};
+          background-color: ${colors.gray1};
         `
       : css``}/* "파일 첨부" 부분 */
   /* 드래그 중일떄와 아닐 때 스타일 */

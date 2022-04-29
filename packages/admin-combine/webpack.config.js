@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 여러 css�
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //  HTML 파일 생성을 단순화
 const TerserPlugin = require('terser-webpack-plugin'); // console.log 제거 옵션
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin'); // ts-loader의 성능을 향상
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 
@@ -32,18 +33,7 @@ module.exports = {
   resolve: {
     // 확장자를 순서대로 해석
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
-    alias: {
-      process: 'process/browser',
-      '@src': path.resolve(__dirname, 'src/'),
-      '@types': path.resolve(__dirname, 'src/@types'),
-      '@store': path.resolve(__dirname, 'src/store'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@features': path.resolve(__dirname, 'src/features'),
-      '@pages': path.resolve(__dirname, 'src/pages'),
-      '@layout': path.resolve(__dirname, 'src/layout'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
-      '@assets': path.resolve(__dirname, 'src/assets'),
-    },
+    plugins: [new TsconfigPathsPlugin()],
   },
   optimization: {
     minimizer:
