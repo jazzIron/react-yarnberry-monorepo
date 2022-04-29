@@ -80,6 +80,7 @@ module.exports = {
           'sass-loader',
         ], // 순서 중요함, 뒤에서 부터 실행
       },
+
       {
         test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|ico)$/i,
         loader: 'url-loader',

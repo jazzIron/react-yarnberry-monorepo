@@ -1,5 +1,8 @@
-@import "ag-grid-community/src/styles/ag-grid.scss";
-@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin";
+// @import "ag-grid-community/src/styles/ag-grid.scss";
+// @import "ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin";
+
+@import 'ag-grid-community/dist/styles/ag-grid.css'; // Core grid CSS, always needed
+@import 'ag-grid-community/dist/styles/ag-theme-alpine.css'; // Optional theme CSS
 
 
 
@@ -81,10 +84,10 @@
 
 
 
-    @include ag-theme-alpine((
-        // alpine-active-color: gray,
-        background-color: #fff
-    ));
+    // @include ag-theme-alpine((
+    //     // alpine-active-color: gray,
+    //     background-color: #fff
+    // ));
 
 
 }

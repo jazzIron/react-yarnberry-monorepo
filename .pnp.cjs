@@ -134,6 +134,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:6.3.0"],\
             ["react-test-renderer", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:17.0.2"],\
             ["recoil", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:0.7.2"],\
+            ["resolve-url-loader", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:4.0.0"],\
             ["sass-loader", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:12.6.0"],\
             ["style-loader", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:3.3.1"],\
             ["terser-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:5.3.1"],\
@@ -8689,6 +8690,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/address-npm-1.1.2-2e737f4622-d966deee6a.zip/node_modules/address/",\
           "packageDependencies": [\
             ["address", "npm:1.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["adjust-sourcemap-loader", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/adjust-sourcemap-loader-npm-4.0.0-c8b560af8c-d524ae2358.zip/node_modules/adjust-sourcemap-loader/",\
+          "packageDependencies": [\
+            ["adjust-sourcemap-loader", "npm:4.0.0"],\
+            ["loader-utils", "npm:2.0.2"],\
+            ["regex-parser", "npm:2.2.11"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -22448,6 +22460,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["regex-parser", [\
+        ["npm:2.2.11", {\
+          "packageLocation": "./.yarn/cache/regex-parser-npm-2.2.11-946d73634f-78200331ec.zip/node_modules/regex-parser/",\
+          "packageDependencies": [\
+            ["regex-parser", "npm:2.2.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["regexp.prototype.flags", [\
         ["npm:1.4.3", {\
           "packageLocation": "./.yarn/cache/regexp.prototype.flags-npm-1.4.3-df1c08b65d-51228bae73.zip/node_modules/regexp.prototype.flags/",\
@@ -22778,6 +22799,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/resolve-url-npm-0.2.1-39edb8f908-7b7035b9ed.zip/node_modules/resolve-url/",\
           "packageDependencies": [\
             ["resolve-url", "npm:0.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["resolve-url-loader", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/resolve-url-loader-npm-4.0.0-2a9c18d86b-8e5bcf9786.zip/node_modules/resolve-url-loader/",\
+          "packageDependencies": [\
+            ["resolve-url-loader", "npm:4.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/resolve-url-loader-virtual-a5eeadf2ae/0/cache/resolve-url-loader-npm-4.0.0-2a9c18d86b-8e5bcf9786.zip/node_modules/resolve-url-loader/",\
+          "packageDependencies": [\
+            ["resolve-url-loader", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:4.0.0"],\
+            ["@types/rework", null],\
+            ["@types/rework-visit", null],\
+            ["adjust-sourcemap-loader", "npm:4.0.0"],\
+            ["convert-source-map", "npm:1.8.0"],\
+            ["loader-utils", "npm:2.0.2"],\
+            ["postcss", "npm:7.0.39"],\
+            ["rework", null],\
+            ["rework-visit", null],\
+            ["source-map", "npm:0.6.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/rework-visit",\
+            "@types/rework",\
+            "rework-visit",\
+            "rework"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -26213,6 +26265,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@webassemblyjs/wasm-parser", "npm:1.11.1"],\
             ["acorn", "npm:8.7.1"],\
             ["acorn-import-assertions", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:1.8.0"],\
+            ["ag-grid-community", "npm:27.2.1"],\
             ["axios-mock-adapter", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:1.10.0"],\
             ["browserslist", "npm:4.20.3"],\
             ["chrome-trace-event", "npm:1.0.3"],\
@@ -26255,6 +26308,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@webassemblyjs/wasm-parser", "npm:1.11.1"],\
             ["acorn", "npm:8.7.1"],\
             ["acorn-import-assertions", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:1.8.0"],\
+            ["ag-grid-community", "npm:27.2.1"],\
             ["axios-mock-adapter", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:1.10.0"],\
             ["browserslist", "npm:4.20.3"],\
             ["chrome-trace-event", "npm:1.0.3"],\
@@ -26296,6 +26350,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@webassemblyjs/wasm-edit", "npm:1.9.0"],\
             ["@webassemblyjs/wasm-parser", "npm:1.9.0"],\
             ["acorn", "npm:6.4.2"],\
+            ["ag-grid-community", "npm:27.2.1"],\
             ["ajv", "npm:6.12.6"],\
             ["ajv-keywords", "virtual:f84d18c473fad3c01e1cf352f81ad13de804ca40da5bf6e752464a2e78dcb097ad579b06da5ff33a55ba9957fb9c74909b99fc5e215420a3f9b5dc87ad71363b#npm:3.5.2"],\
             ["axios-mock-adapter", "virtual:4938c2cf6e6ec174cc504ea7e81450c558170668da5e06fd1c43bf673139300faa2345a4ed420da04b8c2d8b9a81193fde56de22cbb6c3070c8f979bc91ef99c#npm:1.10.0"],\

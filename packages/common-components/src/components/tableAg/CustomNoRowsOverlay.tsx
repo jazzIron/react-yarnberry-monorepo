@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Icon, ICON_LIST } from '@src/components/icon';
+import { Icon, ICON_LIST } from '../icon';
 import { theme as Themes } from '@common/styles';
 
 export default function CustomNoRowsOverlay() {

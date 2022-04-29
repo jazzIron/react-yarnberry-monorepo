@@ -1,4 +1,4 @@
-import { Spinner } from '@components/spinner/Spinner';
+import { Spinner } from '../spinner/Spinner';
 import styled from '@emotion/styled';
 
 export default function CustomLoadingOverlay() {

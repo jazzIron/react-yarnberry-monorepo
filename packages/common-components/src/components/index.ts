@@ -19,7 +19,7 @@ export * from './spinner/index';
 export * from './swiperSlider/index';
 export * from './switch/index';
 export * from './tab/index';
-// export * from './tableAg/index';
+export * from './tableAg/index';
 export * from './textarea/index';
 export * from './toast/index';
 export * from './toggle/index';
