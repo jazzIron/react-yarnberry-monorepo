@@ -20,9 +20,6 @@
       "@types/*": [
         "./src/@types/*"
       ],
-      // "@components/*": [
-      //   "./src/components/*"
-      // ],
       "@features/*": [
         "./src/features/*"
       ],
@@ -34,15 +31,13 @@
       ],
       "@utils/*": [
         "./src/utils/*"
-      ],
-      // "@assets/*": [
-      //   "./src/assets/*"
-      // ]
+      ]
     }
   },
   "include": [
     "../common-styles/src/emotion/emotion.d.ts",
+    // "../common-components/src/components/",
     "src/**/*",
-    "@types/*"
+    "@types/*",
   ]
 }

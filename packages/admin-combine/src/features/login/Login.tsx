@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from '@common/components/src/components/button';
+import { Button, BUTTON_SIZE, BUTTON_THEME } from '@common/components';
 
 export function Login() {
   const handleClick = () => true;
@@ -7,7 +7,7 @@ export function Login() {
     <>
       <LoginWrapper>
         로그인페이지
-        <Button onClick={handleClick} label={'테스트'} />
+        <Button theme={BUTTON_THEME.LINEBLUE} onClick={handleClick} label={'테스트'} />
       </LoginWrapper>
     </>
   );

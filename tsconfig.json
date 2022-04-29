@@ -10,6 +10,18 @@
             "DOM"
         ],
         "baseUrl": ".",
+        // "baseUrl": "./packages",
+        // "paths": {
+        //     "@common/components": [
+        //         "components/src"
+        //     ],
+        //     "@common/untils": [
+        //         "untils/src"
+        //     ],
+        //     "@common/styles": [
+        //         "styles/src"
+        //     ],
+        // },
         "strict": true,
         "resolveJsonModule": true, // json파일 import 허용
         "isolatedModules": false, // ts파일 빈값 불가
