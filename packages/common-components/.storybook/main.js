@@ -26,7 +26,8 @@ module.exports = {
       loader: require.resolve('babel-loader'),
     });
     config.module.rules.push({
-      test: /\.scss$/,
+      // test: /\.scss$/,
+      test: /\.(sa|sc|c)ss$/i,
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
     });

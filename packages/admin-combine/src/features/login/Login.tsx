@@ -1,8 +1,25 @@
 import styled from '@emotion/styled';
-import { Button, BUTTON_THEME } from '@common/components';
+import {
+  Button,
+  BUTTON_THEME,
+  ToastHook,
+  TOAST_OPTION_POSITION,
+  TOAST_TYPE,
+} from '@common/components';
 
 export function Login() {
-  const handleClick = () => true;
+  const { toastMake } = ToastHook();
+
+  const handleClick = () => {
+    toastMake({
+      content: '로그인 성공?실패?',
+      type: TOAST_TYPE.ERROR,
+      options: {
+        autoClose: true,
+        position: TOAST_OPTION_POSITION.TOP_CENTER,
+      },
+    });
+  };
   return (
     <>
       <LoginWrapper>

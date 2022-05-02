@@ -1,21 +1,16 @@
 export enum SPINNER_TYPE {
   'AUDIO' = 'Audio',
   'BALLTRIANGLE' = 'BallTriangle',
-  'BARS' = 'Bars',
-  'CIRCLES' = 'Circles',
-  'GRID' = 'Grid',
-  'HEARTS' = 'Hearts',
+  // 'BARS' = 'Bars',
+  // 'CIRCLES' = 'Circles',
+  // 'GRID' = 'Grid',
+  // 'HEARTS' = 'Hearts',
   'OVAL' = 'Oval',
-  'PUFF' = 'Puff',
-  'RINGS' = 'Rings',
-  'TAILSPIN' = 'TailSpin',
-  'THREEDOTS' = 'ThreeDots',
-  'WATCH' = 'Watch',
-  'REVOLVINGDOT' = 'RevolvingDot',
-  'TRIANGLE' = 'Triangle',
-  'Plane' = 'Plane',
-  'MUTATINGDOTS' = 'MutatingDots',
-  'CRADLELOADER' = 'CradleLoader',
+  // 'PUFF' = 'Puff',
+  // 'RINGS' = 'Rings',
+  // 'TAILSPIN' = 'TailSpin',
+  // 'THREEDOTS' = 'ThreeDots',
+  // 'WATCH' = 'Watch',
 }
 
 export enum SPINNER_SIZE {
@@ -33,21 +28,16 @@ export interface ISpinner {
   type:
     | 'Audio'
     | 'BallTriangle'
-    | 'Bars'
-    | 'Circles'
-    | 'Grid'
-    | 'Hearts'
-    | 'Oval'
-    | 'Puff'
-    | 'Rings'
-    | 'TailSpin'
-    | 'ThreeDots'
-    | 'Watch'
-    | 'RevolvingDot'
-    | 'Triangle'
-    | 'Plane'
-    | 'MutatingDots'
-    | 'CradleLoader'; //스피너 타입
+    // | 'Bars'
+    // | 'Circles'
+    // | 'Grid'
+    // | 'Hearts'
+    | 'Oval';
+  // | 'Puff'
+  // | 'Rings'
+  // | 'TailSpin'
+  // | 'ThreeDots'
+  // | 'Watch';
   theme: SPINNER_THEME;
   size: SPINNER_SIZE;
   content: string;

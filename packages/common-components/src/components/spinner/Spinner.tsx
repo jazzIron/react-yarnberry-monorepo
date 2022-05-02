@@ -2,7 +2,31 @@ import { css, SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ISpinner, SPINNER_THEME, SPINNER_SIZE, SPINNER_TYPE } from './Spinner_types';
-import Loader from 'react-loader-spinner';
+import {
+  Audio,
+  BallTriangle,
+  Bars,
+  Circles,
+  CirclesWithBar,
+  Grid,
+  Hearts,
+  LineWave,
+  MutatingDots,
+  Oval,
+  Plane,
+  Puff,
+  RevolvingDot,
+  RotatingSquare,
+  Rings,
+  TailSpin,
+  ThreeDots,
+  ThreeCircles,
+  Triangle,
+  Watch,
+  RotatingLines,
+  FallingLines,
+  InfinitySpin,
+} from 'react-loader-spinner';
 
 const setSpinnerSize = (size: SPINNER_SIZE) => {
   switch (size) {
@@ -24,21 +48,41 @@ const setSpinnerSize = (size: SPINNER_SIZE) => {
   }
 };
 
-// TODO: ERROR 수정 필요
+const spinnerRenderItem = (
+  type: string,
+  spinnerSize: { width: number; height: number },
+  content: string,
+) => {
+  switch (type) {
+    case SPINNER_TYPE.AUDIO: {
+      return (
+        <Audio color="#4AC6FF" height={spinnerSize.height} width={spinnerSize.width}>
+          {content && <ContentStyled>{content}</ContentStyled>}
+        </Audio>
+      );
+    }
+    case SPINNER_TYPE.BALLTRIANGLE: {
+      return (
+        <BallTriangle color="#4AC6FF" height={spinnerSize.height} width={spinnerSize.width}>
+          {content && <ContentStyled>{content}</ContentStyled>}
+        </BallTriangle>
+      );
+    }
+    default: {
+      return (
+        <Oval color="#4AC6FF" height={spinnerSize.height} width={spinnerSize.width}>
+          {content && <ContentStyled>{content}</ContentStyled>}
+        </Oval>
+      );
+    }
+  }
+};
+
 export function Spinner({ type, theme, size, content, onActive, fullCover, height }: ISpinner) {
   const themeStyle = spinnerTheme[theme];
   const spinnerSize = setSpinnerSize(size);
-  const loader = (
-    <SpinnerStyled themeStyle={themeStyle}>
-      <Loader
-        type={type}
-        color="#4AC6FF"
-        height={spinnerSize.height}
-        width={spinnerSize.width}
-      ></Loader>
-      {content && <ContentStyled>{content}</ContentStyled>}
-    </SpinnerStyled>
-  );
+  const renderItme = spinnerRenderItem(type, spinnerSize, content);
+  const loader = <SpinnerStyled themeStyle={themeStyle}>{renderItme}</SpinnerStyled>;
   if (!onActive) return null;
   return (
     <LoadingWrapper fullCover={fullCover} height={height}>
@@ -60,7 +104,7 @@ const spinnerTheme = {
 
 Spinner.defaultProps = {
   theme: SPINNER_THEME.DEFAULT,
-  type: SPINNER_TYPE.THREEDOTS,
+  type: SPINNER_TYPE.BALLTRIANGLE,
   size: SPINNER_SIZE.MEDIUM,
   content: '',
   onActive: false,
