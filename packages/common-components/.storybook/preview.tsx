@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
 import { DecoratorFn } from '@storybook/react';
-import { theme, GlobalStyle } from '@common/styles';
+import { GlobalStyle, theme } from '@common/styles';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

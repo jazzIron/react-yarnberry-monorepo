@@ -16,8 +16,9 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, './dist'),
-    filename: 'bundle.js',
-    publicPath: '/',
+    filename: '[name]_bundle.js',
+    assetModuleFilename: 'assets/images/[name][ext]',
+    clean: true,
   },
   devServer: {
     static: {
@@ -27,22 +28,18 @@ module.exports = {
     port: 3000,
     liveReload: true,
     hot: false,
-    compress: true,
     historyApiFallback: true,
+    // proxy: {
+    //   '/api/': {
+    //     // /api/로 시작하는 url은 아래의 전체 도메인을 추가하고, 옵션을 적용
+    //     target: `https://dapi-hospital.whatailsyou.app/api`,
+    //     changeOrigin: true,
+    //   },
+    // },
   },
   resolve: {
     // 확장자를 순서대로 해석
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
-    // alias: {
-    //   process: 'process/browser',
-    //   '@src': path.resolve(__dirname, 'src/'),
-    //   '@types': path.resolve(__dirname, 'src/@types'),
-    //   '@store': path.resolve(__dirname, 'src/store'),
-    //   '@features': path.resolve(__dirname, 'src/features'),
-    //   '@pages': path.resolve(__dirname, 'src/pages'),
-    //   '@layout': path.resolve(__dirname, 'src/layout'),
-    //   '@utils': path.resolve(__dirname, 'src/utils'),
-    // },
     plugins: [new TsconfigPathsPlugin()],
   },
   optimization: {
@@ -70,8 +67,17 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: [
+          'babel-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
       },
+
       {
         test: /\.(sa|sc|c)ss$/i,
         use: [
@@ -81,17 +87,35 @@ module.exports = {
         ], // 순서 중요함, 뒤에서 부터 실행
       },
 
+      //TODO: svg, icon, 폰트 확장자 수정
+
       {
-        test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|ico)$/i,
+        test: /\.(png|jpe?g|gif|svg|ico)$/i,
         loader: 'url-loader',
         options: {
           name: '[name].[ext]?[hash]', // hash 처리(캐시)
           limit: 20000, // 2kb 최대
         },
       },
+
+      {
+        test: /\.(woff|woff2|ttf|otf)$/i,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.txt/i,
+        type: 'asset/source',
+      },
     ],
   },
   plugins: [
+    //TODO: 환경구분 webpack5 env 사용 불가능
+    new webpack.DefinePlugin({
+      ENV_MODE: JSON.stringify(mode),
+      'process.env.API_URL': JSON.stringify('https://dapi-hospital.whatailsyou.app'),
+      ADAP_CRYPTO_KEY: JSON.stringify('c841daae-b608-48fa-ab5b-c3d29d229c31'),
+    }),
+    // new webpack.EnvironmentPlugin(['API_URL']),
     new webpack.BannerPlugin({
       banner: `
         Build Date: ${new Date().toLocaleString()}
@@ -101,7 +125,9 @@ module.exports = {
     }),
     //css 파일과 js파일을 각각 html파일의 link태그, script태그로 추가
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
+      filename: './index.html',
+      favicon: `./public/favicon.ico`,
       templateParameters: {
         env: process.env.NODE_ENV === 'development' ? '(개발용)' : '',
       },
@@ -131,6 +157,13 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-    // new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+    }),
   ],
 };

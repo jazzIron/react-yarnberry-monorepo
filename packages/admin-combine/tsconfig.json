@@ -23,9 +23,6 @@
       "@store/*": [
         "./src/store/*"
       ],
-      // "@components/*": [
-      //   "./src/components/*"
-      // ],
       "@features/*": [
         "./src/features/*"
       ],
@@ -34,13 +31,7 @@
       ],
       "@layout/*": [
         "./src/layout/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      // "@assets/*": [
-      //   "./src/assets/*"
-      // ]
+      ]
     }
   },
   "include": [

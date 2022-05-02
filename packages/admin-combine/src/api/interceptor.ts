@@ -9,8 +9,6 @@ let resInterceptor: number | null = null;
 // build 환경에서 api path 재설정
 const target = process.env.REACT_APP_ADMIN_URL;
 
-console.log(target);
-
 const pathRewriteFunc = (url: string) => {
   const rewrite: { [key: string]: string } = {
     api: target + '/api/v3/memberHospital',
@@ -23,6 +21,8 @@ const pathRewriteFunc = (url: string) => {
 };
 
 export function apiInterceptors(event: 'resolve' | 'reject', callBack: (state: boolean) => void) {
+  console.log(target);
+
   if (event === 'resolve') resolveInterceptor(callBack);
   if (event === 'reject') {
     if (!isNull(reqInterceptor)) axios.interceptors.request.eject(reqInterceptor);
@@ -36,7 +36,7 @@ function resolveInterceptor(callBack: (state: boolean) => void) {
     (config) => {
       const url = config.url ? config.url : '';
 
-      // const pathRewrite = process.env.REACT_APP_MODE === 'PRODUCTION' ? pathRewriteFunc(url) : url;
+      //const pathRewrite = process.env.REACT_APP_MODE === 'PRODUCTION' ? pathRewriteFunc(url) : url;
       const pathRewrite = pathRewriteFunc(url);
 
       const token = localStorage.getItem('token');

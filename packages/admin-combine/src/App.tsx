@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
 import { css, ThemeProvider } from '@emotion/react';
 import { theme } from '@common/styles';
-import '@common/styles/src/emotion/emotion.d';
 import { RecoilRoot } from 'recoil';
 
 import './App.scss';

@@ -10,8 +10,10 @@ declare module '*.less' {
 
 declare module '*.svg' {
   import React = require('react');
-  const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  export default ReactComponent;
+  // const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  // export default ReactComponent;
+  const content: any;
+  export default content;
 }
 
 declare module '*.json' {

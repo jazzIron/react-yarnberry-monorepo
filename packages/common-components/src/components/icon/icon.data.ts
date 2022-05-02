@@ -1,3 +1,4 @@
+import { FunctionComponent, SVGProps } from 'react';
 import repo from '../../assets/icon/repo.svg';
 import x_input from '../../assets/icon/icn_x_input.svg';
 import plus from '../../assets/icon/icn_plus.svg';
