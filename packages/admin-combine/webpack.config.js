@@ -97,7 +97,6 @@ module.exports = {
           limit: 20000, // 2kb 최대
         },
       },
-
       {
         test: /\.(woff|woff2|ttf|otf)$/i,
         type: 'asset/inline',

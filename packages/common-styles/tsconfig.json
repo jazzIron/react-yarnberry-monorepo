@@ -15,9 +15,12 @@
                     "css"
                 ]
             }
+        ],
+        "typeRoots": [
+            "@types/*"
         ]
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
     ]
 }
