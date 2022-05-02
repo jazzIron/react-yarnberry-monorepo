@@ -1,7 +1,6 @@
 import { css, Global } from '@emotion/react';
-//import { Gothic, GothicBold, GothicLight, GothicUltraLight } from './assets/fonts/';
 import { colors } from '@common/styles';
-
+import { Gothic, GothicBold } from './fonts';
 export default function GlobalStyle(): JSX.Element {
   return (
     <Global
@@ -158,6 +157,15 @@ export default function GlobalStyle(): JSX.Element {
           width: 100%;
           height: 100%;
         } */
+
+        @font-face {
+          font-family: 'Gothic';
+          src: url(${Gothic});
+        }
+        @font-face {
+          font-family: 'GothicBold';
+          src: url(${GothicBold});
+        }
       `}
     />
   );
