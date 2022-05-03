@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //  HTML 파일 생성
 const TerserPlugin = require('terser-webpack-plugin'); // console.log 제거 옵션
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin'); // ts-loader의 성능을 향상
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const mode = process.env.NODE_ENV || 'development';
 
@@ -114,7 +115,7 @@ module.exports = {
       'process.env.API_URL': JSON.stringify('https://dapi-hospital.whatailsyou.app'),
       ADAP_CRYPTO_KEY: JSON.stringify('c841daae-b608-48fa-ab5b-c3d29d229c31'),
     }),
-    // new webpack.EnvironmentPlugin(['API_URL']),
+
     new webpack.BannerPlugin({
       banner: `
         Build Date: ${new Date().toLocaleString()}

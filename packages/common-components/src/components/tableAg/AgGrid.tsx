@@ -6,7 +6,7 @@ import { AgGridReact } from 'ag-grid-react';
 import './TableAg.scss';
 
 import { debounce, isNil, throttle, isEmpty } from 'lodash';
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo, useRef, useEffect } from 'react';
 
 import CustomLoadingOverlay from './CustomLoadingOverlay';
 import CustomNoRowsOverlay from './CustomNoRowsOverlay';
@@ -34,16 +34,22 @@ export function AgGrid({
   const gridRef = useRef<any>(null);
   const agGridWrapperRef = useRef<any>(null);
 
-  const onGridReady = useCallback((params: FirstDataRenderedEvent) => {
-    try {
-      changeSizeColumsToFit();
-    } catch (e) {
-      throw new Error('ERROR');
-    }
-  }, []);
+  const onGridReady = useCallback(
+    async (params: FirstDataRenderedEvent) => {
+      try {
+        if (isEmpty(rowData)) {
+          gridRef.current.api.showNoRowsOverlay();
+        }
+        gridRef.current.api.sizeColumnsToFit();
+      } catch (e) {
+        throw new Error('ERROR');
+      }
+    },
+    [rowData],
+  );
 
   const onFirstDataRendered = useCallback((params: FirstDataRenderedEvent) => {
-    changeSizeColumsToFit();
+    //changeSizeColumsToFit();
   }, []);
 
   const hideOverlay = useCallback(
@@ -57,15 +63,13 @@ export function AgGrid({
     throttle(() => {
       gridRef.current.api.sizeColumnsToFit();
       hideOverlay();
-    }, 100),
+    }, 0),
     [],
   );
 
   const onGridSizeChanged = useCallback(
     throttle(() => {
       if (isNil(gridRef.current)) return false;
-      if (isEmpty(rowData)) return gridRef.current.api.showNoRowsOverlay();
-
       const gridWidth = agGridWrapperRef.current.offsetWidth;
       const columnsToShow = [];
       const columnsToHide = [];
@@ -84,7 +88,7 @@ export function AgGrid({
       }
       gridRef.current.columnApi.setColumnsVisible(columnsToShow, true);
       gridRef.current.columnApi.setColumnsVisible(columnsToHide, false);
-      changeSizeColumsToFit();
+      gridRef.current.api.sizeColumnsToFit();
     }, 0),
     [],
   );

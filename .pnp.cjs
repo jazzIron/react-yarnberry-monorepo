@@ -108,6 +108,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:40d7f9ffaa138e49294e502d18f847b2aaeb51a6665ba0a769fdec13cf9a762aee6a9a5a420d2a584cce90475436035f01f6a8c3616d22bb5d11e1a9df569a89#npm:11.9.0"],\
             ["@emotion/styled", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:11.8.1"],\
             ["@types/axios-mock-adapter", "npm:1.10.0"],\
+            ["@types/dotenv-webpack", "npm:7.0.3"],\
             ["@types/jest", "npm:27.4.1"],\
             ["@types/lodash", "npm:4.14.182"],\
             ["@types/node", "npm:17.0.30"],\
@@ -122,6 +123,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["clean-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:4.0.0"],\
             ["cross-env", "npm:7.0.3"],\
             ["css-loader", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:6.7.1"],\
+            ["dotenv", "npm:16.0.0"],\
+            ["dotenv-webpack", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:7.1.0"],\
             ["env-cmd", "npm:10.1.0"],\
             ["fork-ts-checker-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:6.5.2"],\
             ["html-webpack-plugin", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:5.5.0"],\
@@ -7146,6 +7149,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/dotenv-webpack", [\
+        ["npm:7.0.3", {\
+          "packageLocation": "./.yarn/cache/@types-dotenv-webpack-npm-7.0.3-771f1ff2b3-db5401515d.zip/node_modules/@types/dotenv-webpack/",\
+          "packageDependencies": [\
+            ["@types/dotenv-webpack", "npm:7.0.3"],\
+            ["@types/node", "npm:17.0.30"],\
+            ["tapable", "npm:2.2.1"],\
+            ["webpack", "virtual:1d99c5451a69f552465deec83eeb7075d4554d402552024b0bd21577a132ccac238efc45848f44d4199b85a466abbf80d4a208b9af75bcdfc346bd02201bdf41#npm:5.72.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/emscripten", [\
         ["npm:1.39.6", {\
           "packageLocation": "./.yarn/cache/@types-emscripten-npm-1.39.6-c9c4021365-437f2f9cdf.zip/node_modules/@types/emscripten/",\
@@ -12805,9 +12820,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["dotenv", [\
+        ["npm:16.0.0", {\
+          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.0-ef4a5ccded-664cebb51f.zip/node_modules/dotenv/",\
+          "packageDependencies": [\
+            ["dotenv", "npm:16.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:8.6.0", {\
           "packageLocation": "./.yarn/cache/dotenv-npm-8.6.0-2ce3e9f7bb-38e902c80b.zip/node_modules/dotenv/",\
           "packageDependencies": [\
+            ["dotenv", "npm:8.6.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dotenv-defaults", [\
+        ["npm:2.0.2", {\
+          "packageLocation": "./.yarn/cache/dotenv-defaults-npm-2.0.2-436a76242a-c005960bd0.zip/node_modules/dotenv-defaults/",\
+          "packageDependencies": [\
+            ["dotenv-defaults", "npm:2.0.2"],\
             ["dotenv", "npm:8.6.0"]\
           ],\
           "linkType": "HARD"\
@@ -12818,6 +12850,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/dotenv-expand-npm-5.1.0-c3fff50eb5-8017675b7f.zip/node_modules/dotenv-expand/",\
           "packageDependencies": [\
             ["dotenv-expand", "npm:5.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dotenv-webpack", [\
+        ["npm:7.1.0", {\
+          "packageLocation": "./.yarn/cache/dotenv-webpack-npm-7.1.0-03e70e33fa-e69f5b5de1.zip/node_modules/dotenv-webpack/",\
+          "packageDependencies": [\
+            ["dotenv-webpack", "npm:7.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:7.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/dotenv-webpack-virtual-8a10c9c244/0/cache/dotenv-webpack-npm-7.1.0-03e70e33fa-e69f5b5de1.zip/node_modules/dotenv-webpack/",\
+          "packageDependencies": [\
+            ["dotenv-webpack", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:7.1.0"],\
+            ["@types/webpack", null],\
+            ["dotenv-defaults", "npm:2.0.2"],\
+            ["webpack", "virtual:e050049f669f536cf8b82be1bd069be091afebfb73f0810a63d225cc1d294e2dac6e8d2a91cda3b876b11716a9930800a7f5d0c6498d22aa943e3582e6af49d9#npm:5.72.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/webpack",\
+            "webpack"\
           ],\
           "linkType": "HARD"\
         }]\

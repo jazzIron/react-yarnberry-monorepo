@@ -32,6 +32,8 @@ axiosClient.defaults.timeout = 5000; // 2.5 timeout 설정
 // const target = process.env.REACT_APP_ADMIN_URL;
 const target = process.env.API_URL;
 
+console.log(process.env.API_URL);
+
 const pathRewriteFunc = (url: string) => {
   const rewrite: { [key: string]: string } = {
     api: target + '/api/v3/memberHospital',

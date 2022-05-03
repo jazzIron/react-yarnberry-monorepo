@@ -23,3 +23,5 @@ export * from './tableAg/index';
 export * from './textarea/index';
 export * from './toast/index';
 export * from './toggle/index';
+export * from './alert/Alert';
+export * from './modal/Modal';

@@ -1,6 +1,7 @@
 import { ISignInParams } from '@src/store/login/LoginState';
 import { IChangePwRequestData } from '@src/store/login/ModifyPwdState';
 import { AxiosRequestConfig } from 'axios';
+import costants from '../index';
 
 import { api } from '../Instance';
 
@@ -43,7 +44,7 @@ export const changeTempPassword = async (param: IChangePwRequestData) => {
 //비밀번호 초기화
 export const initPassword = async (userId: number) => {
   const apiConfig: AxiosRequestConfig = {
-    url: `/api/hospital/managers/initPassword/${userId}`,
+    url: costants.MEMBER_APP.INIT_PASSWORD(userId),
     method: 'GET',
   };
   return api(apiConfig);

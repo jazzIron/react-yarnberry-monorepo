@@ -1,16 +1,36 @@
 import styled from '@emotion/styled';
 import { css, SerializedStyles } from '@emotion/react';
 import { ISelect, SELECT_SIZE, ISelectOptionItems } from './Select_types';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SelectOption } from './SelectOption';
 import { Icon, ICON_LIST } from '../icon';
 
 import { theme as Themes, colors, cssx, fonts } from '@common/styles';
 import { isEqual, isUndefined } from 'lodash';
 
+const useOutsideClick = (
+  ref: React.MutableRefObject<any>, // generic으로 바꿀 예정
+  handlerCallback: (event?: CustomEvent<MouseEvent>) => void,
+) => {
+  useEffect(() => {
+    const listener = (event: CustomEvent<MouseEvent>) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handlerCallback(event);
+    };
+    document.addEventListener('mousedown', listener as EventListener);
+    document.addEventListener('touchstart', listener as EventListener);
+    return () => {
+      document.removeEventListener('mousedown', listener as EventListener);
+      document.removeEventListener('touchstart', listener as EventListener);
+    };
+  }, [ref, handlerCallback]);
+};
 export function Select({ size, disabled, defaultValue, options, placeholder, onChange }: ISelect) {
   const sizeStyle = selectSizeStyle[size];
   const [isOpen, setIsOpen] = useState(false);
+  const outsideRef = useRef(null);
 
   const [selectedOption, setSelectedOption] = useState<ISelectOptionItems | undefined>(
     !isUndefined(defaultValue)
@@ -27,6 +47,12 @@ export function Select({ size, disabled, defaultValue, options, placeholder, onC
     handleToggle();
     onChange(option);
   };
+
+  const outsideCallback = () => {
+    setIsOpen(false);
+  };
+
+  useOutsideClick(outsideRef, outsideCallback);
 
   return (
     <DropDownWrapper sizeStyle={sizeStyle}>
