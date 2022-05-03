@@ -2,10 +2,12 @@
   "name": "@admin/combine",
   "packageManager": "yarn@3.2.0",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve",
-    "dev:build": "cross-env NODE_ENV=development webpack --progress",
-    "start": "cross-env NODE_ENV=production webpack serve",
-    "build": "cross-env NODE_ENV=production webpack --progress"
+    "dev": "webpack serve --env mode=development",
+    "dev:build": "webpack --env mode=development --progress",
+    "stage": "webpack serve --env mode=stage",
+    "stage:build": "webpack --env mode=stage --progress",
+    "start": "webpack serve --env mode=production --progress",
+    "build": "webpack --env mode=production --progress"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",
