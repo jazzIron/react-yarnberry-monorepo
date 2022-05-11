@@ -12,7 +12,8 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = (env) => {
   const DOTEVN_PATH = `.env.${env.mode}`;
-  const mode = env.mode !== 'developer' ? 'production' : env.mode;
+  const mode = env.mode !== 'development' ? 'production' : env.mode;
+  const devtool = env.mode !== 'development' ? 'source-map' : 'inline-source-map';
   console.log(
     '\x1b[33m%s\x1b[0m',
     `*****************************************************************`,
@@ -26,11 +27,12 @@ module.exports = (env) => {
   return {
     mode,
     entry: './src/index.tsx',
+    devtool: devtool,
     output: {
       path: path.join(__dirname, './dist'),
       filename: '[name]_bundle.js',
       assetModuleFilename: 'assets/images/[name][ext]',
-      clean: true,
+      publicPath: '/',
     },
     devServer: {
       static: {
@@ -40,12 +42,14 @@ module.exports = (env) => {
       port: 3000,
       liveReload: true,
       hot: false,
+      open: true,
       historyApiFallback: true,
       // proxy: {
-      //   '/api/': {
+      //   '/api/*': {
       //     // /api/로 시작하는 url은 아래의 전체 도메인을 추가하고, 옵션을 적용
-      //     target: `https://dapi-hospital.whatailsyou.app/api`,
+      //     target: `https://dapi-admin.whatailsyou.app`,
       //     changeOrigin: true,
+      //     // pathRewrite: { '/api': '/' },
       //   },
       // },
     },
@@ -53,6 +57,7 @@ module.exports = (env) => {
       // 확장자를 순서대로 해석
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
       plugins: [new TsconfigPathsPlugin()],
+      fallback: { timers: require.resolve('timers-browserify') },
     },
     optimization: {
       minimizer:
