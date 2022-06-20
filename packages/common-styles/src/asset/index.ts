@@ -1,2 +1,7 @@
 export * from './GlobalStyle';
-export { Gothic, GothicBold, GothicLight, GothicUltraLight } from './fonts';
+export {
+  NotoSansCJKkrRegular,
+  NotoSansCJKkrBold,
+  NotoSansCJKkrLight,
+  NotoSansCJKkrThin,
+} from './fonts/NotoSansCJKkr';

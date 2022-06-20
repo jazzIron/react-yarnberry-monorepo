@@ -1,6 +1,6 @@
-import Gothic from './NanumBarunGothic.otf';
-import GothicBold from './NanumBarunGothicBold.otf';
-import GothicLight from './NanumBarunGothicLight.otf';
-import GothicUltraLight from './NanumBarunGothicUltraLight.otf';
+import NotoSansCJKkrBold from '../NotoSansCJKkr/NotoSansCJKkr-Bold.otf';
+import NotoSansCJKkrRegular from '../NotoSansCJKkr/NotoSansCJKkr-Regular.otf';
+import NotoSansCJKkrLight from '../NotoSansCJKkr/NotoSansCJKkr-Light.otf';
+import NotoSansCJKkrThin from '../NotoSansCJKkr/NotoSansCJKkr-Thin.otf';
 
-export { Gothic, GothicBold, GothicLight, GothicUltraLight };
+export { NotoSansCJKkrRegular, NotoSansCJKkrBold, NotoSansCJKkrLight, NotoSansCJKkrThin };

@@ -29,17 +29,21 @@ module.exports = (env) => {
     entry: './src/index.tsx',
     devtool: devtool,
     output: {
-      path: path.join(__dirname, './dist'),
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: '/',
       filename: '[name]_bundle.js',
       assetModuleFilename: 'assets/images/[name][ext]',
-      publicPath: '/',
     },
     devServer: {
       static: {
         directory: path.join(__dirname, 'public'),
       },
+      client: {
+        progress: true,
+      },
       compress: true,
       port: 3000,
+      allowedHosts: 'auto',
       liveReload: true,
       hot: false,
       open: true,
@@ -104,17 +108,37 @@ module.exports = (env) => {
           ], // 순서 중요함, 뒤에서 부터 실행
         },
         {
-          test: /\.(png|jpe?g|gif|svg|ico)$/i,
-          loader: 'url-loader',
-          options: {
-            name: '[name].[ext]?[hash]', // hash 처리(캐시)
-            limit: 20000, // 2kb 최대
-          },
+          test: /\.(png|jpe?g|gif|ico)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 20000,
+                fallback: 'file-loader',
+                name: '[name].[ext]?[hash]',
+              },
+            },
+          ],
         },
         {
-          test: /\.(woff|woff2|ttf|otf)$/i,
+          test: /\.svg/,
           type: 'asset/inline',
+          // generator: {
+          //   dataUrl: (content) => {
+          //     content = content.toString();
+          //     return svgToMiniDataURI(content);
+          //   },
+          // },
         },
+
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/[name].[hash][ext]',
+          },
+        },
+
         {
           test: /\.txt/i,
           type: 'asset/source',
@@ -122,8 +146,6 @@ module.exports = (env) => {
       ],
     },
     plugins: [
-      // TODO: 환경구분 webpack5 env 사용 불가능
-      // NOTE: DefinePlugin webpack이 빌드하는 동안에만 사용됨
       new webpack.DefinePlugin({
         ENV_MODE: JSON.stringify(env.mode),
       }),
@@ -142,6 +164,7 @@ module.exports = (env) => {
         template: './public/index.html',
         filename: './index.html',
         favicon: `./public/favicon.ico`,
+        hash: true,
         templateParameters: {
           env: env.mode === 'development' ? '(개발용)' : '',
         },

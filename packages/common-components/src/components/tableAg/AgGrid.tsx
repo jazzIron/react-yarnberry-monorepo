@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
-import { FirstDataRenderedEvent, GridOptions, RowClickedEvent } from 'ag-grid-community';
-// eslint-disable-next-line import/order
+import {
+  CellClickedEvent,
+  FirstDataRenderedEvent,
+  GridOptions,
+  IsFullWidthRowParams,
+  RowClickedEvent,
+} from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 
 import './TableAg.scss';
@@ -8,9 +13,9 @@ import './TableAg.scss';
 import { debounce, isNil, throttle, isEmpty } from 'lodash';
 import { useCallback, useMemo, useRef, useEffect } from 'react';
 
-import CustomLoadingOverlay from './CustomLoadingOverlay';
 import CustomNoRowsOverlay from './CustomNoRowsOverlay';
 import { IAgGrid } from './TableAg_types';
+import CustomLoadingOverlay from './CustomLoadingOverlay';
 
 export function AgGrid({
   // onGridReady,
@@ -27,9 +32,12 @@ export function AgGrid({
   suppressRowTransform,
   columnHoverHighlight,
   animateRows,
-  frameworkComponents,
+  components,
   onRowClick,
   children,
+  isFullWidthRow,
+  fullWidthCellRendererComponent,
+  onCellClicked,
 }: IAgGrid) {
   const gridRef = useRef<any>(null);
   const agGridWrapperRef = useRef<any>(null);
@@ -97,6 +105,10 @@ export function AgGrid({
     return onRowClick(event);
   };
 
+  const handleCellClick = (event: CellClickedEvent) => {
+    return onCellClicked(event);
+  };
+
   // const loadingCellRendererSelector = (params: ILoadingCellRendererParams) => {
   //   console.log(params);
   //   const customLoadingOverlay = {
@@ -124,10 +136,11 @@ export function AgGrid({
       defaultColDef: defaultColDef,
       // 행 애니메이션 활성화
       animateRows: animateRows,
-      frameworkComponents: {
-        ...frameworkComponents,
+      components: {
+        ...components,
         customNoRowsOverlay: CustomNoRowsOverlay,
         customLoadingOverlay: CustomLoadingOverlay,
+        fullWidthCellRendererFramework: fullWidthCellRendererComponent,
       },
       // loading component
       loadingOverlayComponent: 'customLoadingOverlay',
@@ -155,6 +168,9 @@ export function AgGrid({
 
       // 테스트 진행중
       // loadingCellRendererSelector: loadingCellRendererSelector,
+      isFullWidthRow: isFullWidthRow,
+      //셀 클릭 이벤트 :
+      onCellClicked: handleCellClick,
     };
   }, []);
 
@@ -191,9 +207,11 @@ AgGrid.defaultProps = {
   suppressRowTransform: false,
   columnHoverHighlight: false,
   animateRows: true,
-  frameworkComponents: null,
+  components: null,
   loading: true,
   onRowClick: (event: RowClickedEvent) => true,
+  onCellClicked: (event: CellClickedEvent) => true,
+  isFullWidthRow: (params: IsFullWidthRowParams) => false,
 };
 
 const AgGridStyled = styled.div`

@@ -35,32 +35,16 @@ export function Login() {
     setFormOption(loginOption);
   }, []);
 
-  const handleSampleLogin = () => {
-    // setOpenAlert({
-    //   theme: ALERT_THEME.ELEMENT,
-    //   title: '관리자메뉴',
-    //   contents: [''],
-    //   elements: <LoginSample />,
-    //   useReqClose: true,
-    //   onOk: () => {
-    //     onCloseAlert();
-    //   },
-    //   okLabel: '확인',
-    //   closeLabel: '취소',
-    // });
-    return true;
-  };
-
   return (
     <>
       {!isNull(formOption) && (
         <LoginWrapper>
-          <LogoWrap onClick={handleSampleLogin}>
+          <LogoWrap>
             <Icon icon={ICON_LIST.icn_logo} width={'212px'} />
           </LogoWrap>
           <LoginBox>
             <TextWrap>
-              <Tetx1>내 손 안의 작은 의사</Tetx1>
+              <Text1>내 손 안의 작은 의사</Text1>
               <Text2>어디아파 병원관리자 시스템</Text2>
             </TextWrap>
             <LoginForm loginOption={formOption} idSave={idSave} onToggleIdSave={onToggleIdSave} />
@@ -106,7 +90,7 @@ const TextWrap = styled.div`
   text-align: center;
   margin-bottom: 50px;
 `;
-const Tetx1 = styled.div`
+const Text1 = styled.div`
   color: ${Themes.colors.ays_maincolor};
   ${Themes.fonts.body_01_b}
 `;

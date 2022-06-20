@@ -1,61 +1,48 @@
-import { ISignInParams } from '@src/store/login/LoginState';
-import { IChangePwRequestData } from '@src/store/login/ModifyPwdState';
 import { AxiosRequestConfig } from 'axios';
-import costants from '../index';
-
+import { MEMBER_ADMIN } from '../constant';
 import { api } from '../Instance';
 
-export const getEmailDuplicate = async (param: { email: string }) => {
+export const signIn = async (param: { email: string; password: string }) => {
   const apiConfig: AxiosRequestConfig = {
-    url: `/api/hospital/accounts/checkEmailDuplicate?email=${param.email}`,
-    method: 'GET',
-  };
-
-  return api(apiConfig);
-};
-
-export const signIn = async (param: ISignInParams) => {
-  const apiConfig: AxiosRequestConfig = {
-    url: `/api/hospital/accounts/signIn`,
+    url: MEMBER_ADMIN.ACCOUNT.SIGNIN,
     method: 'POST',
-    data: { ...param },
+    data: {
+      ...param,
+    },
   };
+
   return api(apiConfig);
 };
 
-export const changePassword = async (param: IChangePwRequestData) => {
+export const modifyPwd = (param: {
+  password: string;
+  changePassword: string;
+  confirmChangePassword: string;
+}) => {
   const apiConfig: AxiosRequestConfig = {
-    url: `/api/hospital/members/changePassword`,
+    url: MEMBER_ADMIN.MEMBER.CHANGE_PASSWORD,
     method: 'PATCH',
-    data: { ...param },
+    data: {
+      ...param,
+    },
   };
+
   return api(apiConfig);
 };
 
-export const changeTempPassword = async (param: IChangePwRequestData) => {
+export const modifyinitPwd = (param: {
+  email: string;
+  password: string;
+  changePassword: string;
+  confirmChangePassword: string;
+}) => {
   const apiConfig: AxiosRequestConfig = {
-    url: `/api/hospital/members/initChangePassword`,
+    url: MEMBER_ADMIN.MEMBER.CHANGE_INIT_PASSWORD,
     method: 'PATCH',
-    data: { ...param },
+    data: {
+      ...param,
+    },
   };
+
   return api(apiConfig);
 };
-
-//비밀번호 초기화
-export const initPassword = async (userId: number) => {
-  const apiConfig: AxiosRequestConfig = {
-    url: costants.MEMBER_APP.INIT_PASSWORD(userId),
-    method: 'GET',
-  };
-  return api(apiConfig);
-};
-
-// export const getCheckPassword = async (userId: number, password: string) => {
-//   const apiConfig: AxiosRequestConfig = {
-//     url: `/api/hospital/accounts/${userId}/checkPassword`,
-//     method: 'GET',
-//     params: { password },
-//   };
-
-//   return api(apiConfig);
-// };

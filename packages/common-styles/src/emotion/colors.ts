@@ -1,4 +1,4 @@
-const colors = {
+const colors: { [key: string]: string } = {
   gray_06: '#b5b5b5',
   gray_05: '#999999',
   gray_07: '#d9d9d9',

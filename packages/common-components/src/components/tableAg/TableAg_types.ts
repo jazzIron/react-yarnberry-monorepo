@@ -1,4 +1,14 @@
-import { GridOptions, RowClickedEvent } from 'ag-grid-community';
+import {
+  GridOptions,
+  RowClickedEvent,
+  CellClickedEvent,
+  ICellRendererParams,
+  CellClassParams,
+  ValueFormatterParams,
+  ValueGetterParams,
+  IsFullWidthRowParams,
+  RowClassParams,
+} from 'ag-grid-community';
 import { ReactNode } from 'react';
 
 export interface IAgGrid extends GridOptions {
@@ -10,4 +20,17 @@ export interface IAgGrid extends GridOptions {
     | 'ag-theme-material';
   children: ReactNode | ReactNode[];
   onRowClick: (event: RowClickedEvent) => void;
+  onCellClicked: (event: CellClickedEvent) => void;
+  fullWidthCellRendererComponent?: () => any;
 }
+
+export type {
+  ICellRendererParams,
+  CellClassParams,
+  ValueFormatterParams,
+  RowClickedEvent,
+  CellClickedEvent,
+  ValueGetterParams,
+  IsFullWidthRowParams,
+  RowClassParams,
+};

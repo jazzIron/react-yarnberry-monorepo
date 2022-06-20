@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { Button } from '@components/button/Button';
 import { AgTable } from './AgTable_TEST';
 import { FirstDataRenderedEvent } from 'ag-grid-community';
+import tableSampleData from './table.sample.data.json';
 
 export default {
   title: `Components/TableAg`,
@@ -21,9 +22,9 @@ export default {
 } as ComponentMeta<typeof AgTable>;
 
 const Template: ComponentStory<typeof AgTable> = (args) => {
-  const [rowData, setRowdata] = useState();
+  const [rowData, setRowData] = useState<any>();
   const onGridReady = async (params: FirstDataRenderedEvent) => {
-    return true;
+    return setRowData(tableSampleData);
     // try {
     //   const response = await axios.get(
     //     'https://www.ag-grid.com/example-assets/olympic-winners.json',

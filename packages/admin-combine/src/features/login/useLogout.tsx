@@ -12,7 +12,6 @@ export function useLogout() {
 
   // const { setOpenAlert, onCloseAlert } = useAlert();
 
-  //TODO: 소켓 close 이벤트 처리 필요
   const onLogout = async () => {
     setLoading(true);
     loginUserStorageReset();
@@ -40,7 +39,6 @@ export function useLogout() {
       console.log('logout');
       clearSession();
       window.location.reload();
-
       setLoading(false);
     }
   }, [loading, signinState]);

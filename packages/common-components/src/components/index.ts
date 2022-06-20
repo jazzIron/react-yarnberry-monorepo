@@ -11,7 +11,6 @@ export * from './image/index';
 export * from './input/index';
 export * from './list/index';
 export * from './pagenation/index';
-export * from './postCode/index';
 export * from './radio/index';
 export * from './select/index';
 export * from './space/index';

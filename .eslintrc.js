@@ -8,6 +8,7 @@ module.exports = {
     'jest/globals': true,
   },
   extends: [
+    // 순서 중요
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -36,7 +37,7 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-props-no-spreading': 'off', // props로 받은 것 바로 props로 넘기기 허용
     'react/jsx-filename-extension': [
       'error',
       { extensions: ['.tsx', '.jsx', 'spec.js'] }, //확장자 설정
@@ -83,6 +84,7 @@ module.exports = {
     ],
   },
   overrides: [
+    // 설정 오버라이드
     {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',

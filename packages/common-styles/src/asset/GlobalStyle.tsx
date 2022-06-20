@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/react';
 import { colors } from '@common/styles';
-import { Gothic, GothicBold } from './fonts';
+import { NotoSansCJKkrRegular, NotoSansCJKkrBold } from './fonts/NotoSansCJKkr';
+
 export default function GlobalStyle(): JSX.Element {
   return (
     <Global
@@ -47,7 +48,9 @@ export default function GlobalStyle(): JSX.Element {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
-          font-family: 'Gothic';
+          font-family: 'NotoSansCJKkrRegular';
+          word-break: break-word;
+          font-weight: normal;
         }
 
         * {
@@ -74,6 +77,7 @@ export default function GlobalStyle(): JSX.Element {
           -ms-text-size-adjust: none;
           scroll-behavior: smooth;
           background-color: ${colors.bg_gray};
+          scrollbar-width: thin;
         }
 
         #root {
@@ -81,8 +85,9 @@ export default function GlobalStyle(): JSX.Element {
           display: flex;
           flex-direction: column;
           justify-content: flex-start; */
-          font-family: 'Gothic';
+          font-family: 'NotoSansCJKkrRegular';
           word-break: break-word;
+          font-weight: normal;
         }
 
         img,
@@ -117,17 +122,6 @@ export default function GlobalStyle(): JSX.Element {
           margin: -1px;
         }
 
-        /* input,
-        button,
-        select {
-          -webkit-border-radius: 0;
-          border-radius: 0;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          outline: 0;
-        } */
-
         address,
         caption,
         em {
@@ -150,21 +144,26 @@ export default function GlobalStyle(): JSX.Element {
           cursor: pointer;
         }
 
-        /* modal */
-        /* .ReactModal__Body--open {
-          overflow: hidden;
-          position: fixed;
-          width: 100%;
-          height: 100%;
-        } */
+        ul::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        ul::-webkit-scrollbar-thumb {
+          height: 20%;
+          background: ${colors.ays_maincolor};
+          border-radius: 8px;
+        }
+        ul::-webkit-scrollbar-track {
+          background: rgba(33, 122, 244, 0.1);
+        }
 
         @font-face {
-          font-family: 'Gothic';
-          src: url(${Gothic});
+          font-family: 'NotoSansCJKkrRegular';
+          src: url(${NotoSansCJKkrRegular}) format('woff');
         }
         @font-face {
-          font-family: 'GothicBold';
-          src: url(${GothicBold});
+          font-family: 'NotoSansCJKkrBold';
+          src: url('${NotoSansCJKkrBold}') format('woff');
         }
       `}
     />

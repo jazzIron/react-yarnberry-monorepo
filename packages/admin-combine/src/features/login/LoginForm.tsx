@@ -86,8 +86,6 @@ export function LoginForm({
             size={BUTTON_SIZE.LARGE}
             isDisabled={submitDisabled}
           />
-          {/* TODO : 배포 시 삭제 */}
-          {/* {process.env.REACT_APP_MODE !== 'PRODUCTION' && <LoginSample />} */}
         </CheckWrap>
       </LoginFormWrapper>
     </>
@@ -107,6 +105,4 @@ const FormWrap = styled.div`
   }
 `;
 
-const CheckWrap = styled.div`
-  /* margin-top: 60px; */
-`;
+const CheckWrap = styled.div``;
