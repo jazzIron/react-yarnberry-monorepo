@@ -23,17 +23,6 @@ export function useLoginForm() {
   const setUserStorage = useSetRecoilState(loginUserStorageState);
   const signinState = useRecoilValue(getSigninState);
 
-  // const ModifyPwdTitles: IModifyFormTitle[] = [
-  //   {
-  //     type: 'title1',
-  //     text: '비밀번호를 변경해 주세요!',
-  //   },
-  //   {
-  //     type: 'title2',
-  //     text: '안전한 사용을 위하여, 비밀번호 변경을 진행해야 합니다.',
-  //   },
-  // ];
-
   const onLoginSuccess = (data: ISignInData, email: string, idSave: boolean) => {
     if (idSave) {
       const alreadySaved = getCookie(cookieKey);
@@ -95,7 +84,6 @@ export function useLoginForm() {
   }, []);
 
   return {
-    // ModifyPwdTitles,
     onLoginSuccess,
     onLoginFail,
   };

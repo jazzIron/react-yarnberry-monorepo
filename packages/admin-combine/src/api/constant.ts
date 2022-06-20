@@ -1,4 +1,5 @@
 const apiRootAdmin = process.env.ADMIN_URL;
+const areyousickRoot = process.env.AREYOUSICK_URL;
 
 const MEMBER_ROOT = `${apiRootAdmin}/api/v3/memberAdmin/admin`;
 
@@ -19,4 +20,10 @@ const MEMBER_ADMIN = {
   },
 };
 
-export { MEMBER_ADMIN };
+const DISEASE = {
+  DISEASES: {
+    DISEASE_LIST: `${areyousickRoot}/open/api/diseases`,
+  },
+};
+
+export { MEMBER_ADMIN, DISEASE };

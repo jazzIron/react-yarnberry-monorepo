@@ -27,7 +27,6 @@ export function LoginForm({
 }) {
   const { formData, formRef, onSubmit, submitDisabled } = useFormHooks(loginOption);
   const { onLoginSuccess, onLoginFail } = useLoginForm();
-  // const { setModifyPwd } = useSetModifyPwd();
   const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (signInParams: ISignInParams) => {
@@ -40,16 +39,6 @@ export function LoginForm({
           return;
         }
       }
-      // if (response.status === 605) {
-      //   setModifyPwd({
-      //     email: signInParams.email,
-      //     tempUser: true,
-      //     title: ModifyPwdTitles,
-      //   });
-      //   return;
-      // } else if (response.message) {
-      //   onLoginFail([response.message]);
-      // }
 
       alert(response.message);
     }

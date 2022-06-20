@@ -39,12 +39,12 @@
 			"",
 			"export function ${TM_FILENAME_BASE}() {",
 			"  return (",
-			"    <${TM_FILENAME_BASE}Styled>",
-			"    </${TM_FILENAME_BASE}Styled>",
+			"    <${TM_FILENAME_BASE}Wrapper>",
+			"    </${TM_FILENAME_BASE}Wrapper>",
 			"  );",
 			"}",
 			"",
-			"const ${TM_FILENAME_BASE}Styled = styled.div`",
+			"const ${TM_FILENAME_BASE}Wrapper = styled.div`",
 			"`",
 			"",
 			""
@@ -57,16 +57,16 @@
 			"import { atom } from 'recoil';",
 			"",
 			"interface I${TM_FILENAME_BASE} {",
-				"id: string;",
+			"id: string;",
 			"}",
 			"",
 			"const init${TM_FILENAME_BASE}: I${TM_FILENAME_BASE} = {",
-				"id: '',",
+			"id: '',",
 			"};",
 			"",
 			"export const ${TM_FILENAME_BASE} = atom({",
-				"key: '${TM_FILENAME_BASE}',",
-				"default: init${TM_FILENAME_BASE},",
+			"key: '${TM_FILENAME_BASE}',",
+			"default: init${TM_FILENAME_BASE},",
 			"});",
 			"",
 		],
@@ -175,32 +175,34 @@
 		"description": "Generate React-TS-Storybook default format"
 	},
 	"Print to console.log": {
-    "prefix": "cl",
-    "body": ["console.log($0)"],
-    "description": "Print to console.log"
-  },
+		"prefix": "cl",
+		"body": [
+			"console.log($0)"
+		],
+		"description": "Print to console.log"
+	},
 	"Generate useState": {
-    "prefix": "rus",
-    "body": ["const [${1:stateName},set${1:stateName}] = useState<string>()"],
-    "description": "Print to console.log"
-  },
-
+		"prefix": "rus",
+		"body": [
+			"const [${1:stateName},set${1:stateName}] = useState<string>()"
+		],
+		"description": "Print to console.log"
+	},
 	"Generate arrow function": {
-    "prefix": "arf",
-    "body": [
+		"prefix": "arf",
+		"body": [
 			"= () => {",
 			"  $0",
 			"}",
 		],
-    "description": "Print to console.log"
-  },
-
+		"description": "Print to console.log"
+	},
 	"Generate useEffect": {
-    "prefix": "rue",
+		"prefix": "rue",
 		"body": [
 			"useEffect(() => {",
 			"}, [])"
 		],
-    "description": "Print useeffect"
-  },
+		"description": "Print useeffect"
+	},
 }
