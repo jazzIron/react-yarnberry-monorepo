@@ -24,8 +24,6 @@ export function Input({
     onChange('');
   };
 
-  /*test1*/
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.target.value;

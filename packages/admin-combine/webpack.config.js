@@ -11,9 +11,9 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = (env) => {
-  const DOTEVN_PATH = `.env.${env.mode}`;
+  const DOTENV_PATH = `.env.${env.mode}`;
   const mode = env.mode !== 'development' ? 'production' : env.mode;
-  const devtool = env.mode !== 'development' ? 'source-map' : 'inline-source-map';
+  const devtool = env.mode !== 'development' ? 'eval-cheap-source-map' : 'source-map';
   console.log(
     '\x1b[33m%s\x1b[0m',
     `*****************************************************************`,
@@ -48,14 +48,6 @@ module.exports = (env) => {
       hot: false,
       open: true,
       historyApiFallback: true,
-      // proxy: {
-      //   '/api/*': {
-      //     // /api/로 시작하는 url은 아래의 전체 도메인을 추가하고, 옵션을 적용
-      //     target: `https://dapi-admin.whatailsyou.app`,
-      //     changeOrigin: true,
-      //     // pathRewrite: { '/api': '/' },
-      //   },
-      // },
     },
     resolve: {
       // 확장자를 순서대로 해석
@@ -123,14 +115,7 @@ module.exports = (env) => {
         {
           test: /\.svg/,
           type: 'asset/inline',
-          // generator: {
-          //   dataUrl: (content) => {
-          //     content = content.toString();
-          //     return svgToMiniDataURI(content);
-          //   },
-          // },
         },
-
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
@@ -150,7 +135,7 @@ module.exports = (env) => {
         ENV_MODE: JSON.stringify(env.mode),
       }),
       new Dotenv({
-        path: DOTEVN_PATH,
+        path: DOTENV_PATH,
       }),
       new webpack.BannerPlugin({
         banner: `

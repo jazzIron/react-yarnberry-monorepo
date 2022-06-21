@@ -20,7 +20,7 @@ export interface IInputForm {
    */
   theme: INPUT_FORM_THEME;
   /**
-   * INPUT theme
+   * INPUT value
    */
   inputValue: string;
   /**

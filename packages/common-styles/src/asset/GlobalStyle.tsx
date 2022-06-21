@@ -81,10 +81,6 @@ export default function GlobalStyle(): JSX.Element {
         }
 
         #root {
-          /* height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start; */
           font-family: 'NotoSansCJKkrRegular';
           word-break: break-word;
           font-weight: normal;
@@ -159,11 +155,13 @@ export default function GlobalStyle(): JSX.Element {
 
         @font-face {
           font-family: 'NotoSansCJKkrRegular';
-          src: url(${NotoSansCJKkrRegular}) format('woff');
+          src: local('NotoSansCJKkrRegular'), url(${NotoSansCJKkrRegular}) format('woff2');
+          font-display: swap;
         }
         @font-face {
           font-family: 'NotoSansCJKkrBold';
-          src: url('${NotoSansCJKkrBold}') format('woff');
+          src: local('NotoSansCJKkrBold'), url(${NotoSansCJKkrBold}) format('woff2');
+          font-display: swap;
         }
       `}
     />

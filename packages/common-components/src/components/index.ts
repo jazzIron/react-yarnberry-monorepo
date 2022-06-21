@@ -24,3 +24,6 @@ export * from './toast/index';
 export * from './toggle/index';
 export * from './alert/Alert';
 export * from './modal/Modal';
+export * from './searchInput/SearchInput';
+export * from './label/Label';
+export * from './skeleton/Skeleton';

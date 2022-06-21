@@ -26,7 +26,6 @@ export function useLoginForm() {
   const onLoginSuccess = (data: ISignInData, email: string, idSave: boolean) => {
     if (idSave) {
       const alreadySaved = getCookie(cookieKey);
-      console.log(alreadySaved);
       if (!alreadySaved) {
         setCookie(cookieKey, email);
       } else {

@@ -1,11 +1,10 @@
-import { IListPagination } from '@common/utils';
 import { atom, atomFamily } from 'recoil';
 import { getDiseaseList } from './../../api/disease/DiseaseApi';
 
 type SelectorMapper<Type> = {
   [Property in keyof Type]: Type[Property];
 };
-type SEARCH_MODE = 'SEARCH' | 'CHANGE_PARAM';
+type SEARCH_MODE = 'SEARCH' | 'CHANGE_PARAM' | 'NEXT_PAGE';
 
 export type DiseaseSearch = DiseaseSearchParams & { mode: SEARCH_MODE };
 
@@ -31,7 +30,7 @@ export const diseaseListSearchParams = atom<DiseaseSearchParams>({
   },
 });
 
-export interface DiseaseListApi {
+export interface DiseaseListApiData {
   diseaseId: string;
   diseaseName: string;
   diseasePartName: string;
@@ -48,7 +47,7 @@ export interface Paging {
 }
 
 export interface DiseaseListQuery {
-  data: DiseaseListApi[] | [];
+  data: DiseaseListApiData[] | [];
   paging: Paging;
   //   pageNumber: number;
   searchParams: DiseaseSearchParams;
@@ -115,5 +114,20 @@ export const diseaseListPageState = atom<Paging>({
     prev: false,
     startPage: 1,
     total: 0,
+  },
+});
+
+export interface DiseaseAutoCompleteResult {
+  data: DiseaseListApiData[] | [];
+  loading: boolean;
+  error: boolean;
+}
+
+export const diseaseAutoCompleteResult = atom<DiseaseAutoCompleteResult>({
+  key: 'diseaseAutoCompleteResult',
+  default: {
+    data: [],
+    loading: true,
+    error: true,
   },
 });

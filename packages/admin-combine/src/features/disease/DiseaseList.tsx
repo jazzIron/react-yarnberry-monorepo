@@ -1,87 +1,118 @@
+import { Spinner } from '@common/components';
 import styled from '@emotion/styled';
-import { DiseaseListApi } from '@src/store/disease/DiseaseState';
-import { isNull } from 'lodash';
+import { DiseaseListApiData } from '@src/store/disease/DiseaseState';
 import { useEffect, useRef, useState } from 'react';
 import { DiseaseRow } from './DiseaseRow';
+import { DiseaseRowSkeleton } from './DiseaseRowSkeleton';
 import { useDiseaseList } from './useDiseaseList';
-import { useDiseaseSearch } from './useDiseaseSearch';
+import DiseaseSearch from './DiseaseSearch';
+import { colors } from '@common/styles';
 
 export function DiseaseList() {
   const [loading, setLoading] = useState(true);
-  const { diseaseList, getDiseaseList } = useDiseaseList();
   const {
+    diseaseList,
     searchParams,
     hasNextPage,
+    getDiseaseList,
+    resetDiseaseListResult,
     resetDiseaseListSearchParams,
     changeKeywordHandler,
-    changeSubjectHandler,
     changePageHandler,
     changeDiseaseListPageStateHandler,
-  } = useDiseaseSearch();
+  } = useDiseaseList();
 
+  const pageEndRef = useRef<HTMLDivElement | null>(null);
   const target = useRef<HTMLDivElement>(null);
-  const [diseaseItems, setDiseaseItems] = useState<DiseaseListApi[]>([]);
-
-  if (isNull(diseaseList.data)) return <>데이터없음</>;
-
-  /* 초기 아이템 로딩 */
-  useEffect(() => {
-    if (searchParams.mode === 'SEARCH') {
-      setLoading(false);
-      getDiseaseList();
-    }
-  }, [searchParams]);
+  const [diseaseItems, setDiseaseItems] = useState<DiseaseListApiData[]>([]);
 
   useEffect(() => {
     return () => {
       resetDiseaseListSearchParams();
+      resetDiseaseListResult();
     };
   }, []);
 
   useEffect(() => {
+    setLoading(false);
+    getDiseaseList();
+  }, [searchParams]);
+
+  useEffect(() => {
     if (!diseaseList.error && !diseaseList.loading) {
-      setDiseaseItems((prev) => [...diseaseItems, ...diseaseList.data]);
+      if (searchParams.mode === 'SEARCH') setDiseaseItems(diseaseList.data);
+      else setDiseaseItems((prev) => [...prev, ...diseaseList.data]);
       setLoading(!diseaseList.loading);
       changeDiseaseListPageStateHandler(diseaseList.paging);
     }
   }, [diseaseList]);
 
-  const pageEnd = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    if (loading) {
+    if (loading && hasNextPage) {
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
             changePageHandler();
-            if (pageEnd.current && !hasNextPage) observer.unobserve(pageEnd.current);
+            if (pageEndRef.current && !hasNextPage) observer.unobserve(pageEndRef.current);
             observer.disconnect();
           }
         },
         { threshold: 1 },
       );
-      if (pageEnd.current) observer.observe(pageEnd.current);
+      if (pageEndRef.current) observer.observe(pageEndRef.current);
     }
   }, [loading]);
 
+  console.log(diseaseList.paging);
+
   return (
     <DiseaseListWrapper>
-      <DiseaseRowWrapper ref={target}>
-        {diseaseItems &&
-          diseaseItems.map((item, idx) => <DiseaseRow key={idx} diseaseItem={item} />)}
-      </DiseaseRowWrapper>
-      {!diseaseList.loading && (
-        <LoadMoreWrapper>
-          <div onClick={changePageHandler} ref={pageEnd}>
-            Load More
-          </div>
-        </LoadMoreWrapper>
+      <DiseaseSearchWrapper>
+        <DiseaseSearch searchDisease={changeKeywordHandler} />
+      </DiseaseSearchWrapper>
+      {diseaseList.loading ? (
+        <DiseaseRowSkeletonWrapper>
+          {new Array(7).fill(1).map((_, i) => {
+            return <DiseaseRowSkeleton key={i} />;
+          })}
+        </DiseaseRowSkeletonWrapper>
+      ) : (
+        <>
+          <DiseaseRowWrapper ref={target}>
+            {diseaseItems &&
+              diseaseItems.map((item, idx) => <DiseaseRow key={idx} diseaseItem={item} />)}
+          </DiseaseRowWrapper>
+          {hasNextPage && (
+            <LoadMoreWrapper>
+              <div ref={pageEndRef}>
+                <Spinner onActive={true} fullCover={false} />
+              </div>
+            </LoadMoreWrapper>
+          )}
+        </>
       )}
     </DiseaseListWrapper>
   );
 }
 
-const DiseaseListWrapper = styled.div``;
-const DiseaseRowWrapper = styled.div``;
+const DiseaseListWrapper = styled.div`
+  width: 100%;
+  padding: 16px;
+  max-height: 90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+`;
+const DiseaseSearchWrapper = styled.div`
+  border-bottom: 1px solid ${colors.gray7};
+`;
+const DiseaseRowSkeletonWrapper = styled.div`
+  margin-top: 20px;
+  width: 100%;
+`;
+const DiseaseRowWrapper = styled.div`
+  margin-top: 20px;
+`;
+
 const LoadMoreWrapper = styled.div`
   text-align: center;
   padding: 24px;

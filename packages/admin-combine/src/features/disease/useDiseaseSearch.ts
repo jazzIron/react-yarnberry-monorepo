@@ -1,64 +1,104 @@
 import {
-  diseaseListPageState,
-  diseaseListSearchParams,
-  Paging,
+  DiseaseListApiData,
+  DiseaseAutoCompleteResult,
+  diseaseListQuery,
+  diseaseAutoCompleteResult,
 } from '@src/store/disease/DiseaseState';
-import { useMemo } from 'react';
-import { useRecoilState, useResetRecoilState, useRecoilValue } from 'recoil';
+import { debounce, isEmpty } from 'lodash';
+import { useCallback, useRef, useState } from 'react';
+import { useRecoilCallback, useRecoilValue, useResetRecoilState } from 'recoil';
 
-export function useDiseaseSearch() {
-  const [diseaseListPage, setDiseaseListPage] = useRecoilState(diseaseListPageState);
-  const [searchParams, setSearchParams] = useRecoilState(diseaseListSearchParams);
-  const resetDiseaseListSearchParams = useResetRecoilState(diseaseListSearchParams);
+const isDiseaseAutoComplete = (
+  res: DiseaseAutoCompleteResult,
+): res is DiseaseAutoCompleteResult => {
+  return (res as DiseaseAutoCompleteResult).error === false;
+};
 
-  const hasNextPage = useMemo(() => {
-    const { criteria, endPage } = diseaseListPage;
-    if (endPage === 0) return true;
-    return criteria.currentPageNo < endPage && criteria.currentPageNo !== endPage ? true : false;
-  }, [diseaseListPage]);
+export function useDiseaseSearch(
+  searchDisease: (keyword: string, type: string) => void,
+  useOutsideClick: (
+    ref: React.MutableRefObject<any>,
+    handlerCallback: (event?: CustomEvent<MouseEvent>) => void,
+  ) => void,
+) {
+  const outsideRef = useRef(null);
+  const [searchInput, setSearchInput] = useState('');
+  const [active, setActive] = useState<boolean>(false);
+  const autoCompleteData = useRecoilValue(diseaseAutoCompleteResult);
+  const resetDiseaseAutoCompleteResult = useResetRecoilState(diseaseAutoCompleteResult);
 
-  const changeKeywordHandler = (value: string) => {
-    return setSearchParams((prev) => ({
-      ...prev,
-      searchKeyword: value,
-      mode: 'CHANGE_PARAM',
-    }));
+  const outsideCallback = () => resetDiseaseAutoCompleteResult();
+  useOutsideClick(outsideRef, outsideCallback);
+
+  const handleChangeInput = (inputValue: string) => {
+    setSearchInput(inputValue);
+    debouncedCallback(inputValue);
   };
 
-  const changeSubjectHandler = (value: string) => {
-    return setSearchParams((prev) => ({
-      ...prev,
-      subjectId: value,
-      mode: 'CHANGE_PARAM',
-    }));
+  const debouncedCallback = useCallback(
+    debounce((newValue: string) => searchDiseaseCallback(newValue), 500),
+    [],
+  );
+
+  const inputFocusHandler = () => {
+    resetDiseaseAutoCompleteResult();
+    setActive(true);
+  };
+  const inputBlurHandler = () => setActive(false);
+  const searchHandler = () => searchDisease(searchInput, 'SEARCH');
+
+  const selectDiseaseItemHandler = (
+    event: React.MouseEvent<HTMLDivElement>,
+    disease: DiseaseListApiData,
+  ) => {
+    event.preventDefault();
+    setActive(false);
+    searchDisease(disease.diseaseName, 'SEARCH');
   };
 
-  const changePageHandler = () => {
-    console.log(diseaseListPage);
-    if (!hasNextPage) return false;
-    setSearchParams((prev) => {
-      const currentPageNo = hasNextPage ? prev.currentPageNo + 1 : prev.currentPageNo;
-      return {
-        ...prev,
-        currentPageNo: currentPageNo,
-        // limit: 800,
-        mode: 'SEARCH',
-      };
-    });
-  };
-
-  const changeDiseaseListPageStateHandler = (paging: Paging) => {
-    setDiseaseListPage(paging);
-  };
+  const searchDiseaseCallback = useRecoilCallback(
+    ({ snapshot, set }) =>
+      async (newValue: string) => {
+        try {
+          if (isEmpty(newValue)) return false;
+          resetDiseaseAutoCompleteResult();
+          const refreshId = Math.random();
+          const params = {
+            searchParams: {
+              searchKeyword: newValue,
+              subjectId: '',
+              currentPageNo: 1,
+              limit: 10,
+              mode: 'SEARCH',
+            },
+            refreshId,
+          };
+          const response: DiseaseAutoCompleteResult = await snapshot.getPromise(
+            diseaseListQuery(params),
+          );
+          if (isDiseaseAutoComplete(response)) {
+            set(diseaseAutoCompleteResult, {
+              data: response.data,
+              loading: false,
+              error: response.error,
+            });
+          } else {
+            throw new Error(`[ERROR] searchDiseaseCallback`);
+          }
+        } catch (error) {
+          console.error(`[ERROR] searchDiseaseCallback: ${error}`);
+        }
+      },
+  );
 
   return {
-    searchParams,
-    diseaseListPage,
-    hasNextPage,
-    resetDiseaseListSearchParams,
-    changeKeywordHandler,
-    changeSubjectHandler,
-    changePageHandler,
-    changeDiseaseListPageStateHandler,
+    searchInput,
+    active,
+    autoCompleteData,
+    selectDiseaseItemHandler,
+    handleChangeInput,
+    inputFocusHandler,
+    inputBlurHandler,
+    searchHandler,
   };
 }

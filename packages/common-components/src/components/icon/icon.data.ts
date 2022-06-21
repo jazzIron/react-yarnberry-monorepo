@@ -65,6 +65,7 @@ import icn_cs_call from '../../assets/icon/icn_cs_call.svg';
 import icn_cs_guide from '../../assets/icon/icn_cs_guide.svg';
 import icn_cs_mail from '../../assets/icon/icn_cs_mail.svg';
 import icn_more from '../../assets/icon/icn_more.svg';
+import icn_search from '../../assets/icon/icn-search.svg';
 
 export const ICON_LIST: { [key: string]: string } = {
   repo,
@@ -132,4 +133,5 @@ export const ICON_LIST: { [key: string]: string } = {
   icn_cs_guide,
   icn_cs_mail,
   icn_more,
+  icn_search,
 };

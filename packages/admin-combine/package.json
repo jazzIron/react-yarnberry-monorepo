@@ -4,10 +4,9 @@
   "scripts": {
     "dev": "webpack serve --env mode=development",
     "dev:build": "webpack --env mode=development --progress",
-    "stage": "webpack serve --env mode=stage",
-    "stage:build": "webpack --env mode=stage --progress",
     "start": "webpack serve --env mode=production --progress",
-    "build": "webpack --env mode=production --progress"
+    "build": "webpack --env mode=production --progress",
+    "analyze": "webpack-bundle-analyzer --port 8888 ./src/bundle-report.json --default-sizes gzip"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",

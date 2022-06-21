@@ -36,7 +36,6 @@ export function useLogout() {
 
   useEffect(() => {
     if (loading && signinState === 'N') {
-      console.log('logout');
       clearSession();
       window.location.reload();
       setLoading(false);

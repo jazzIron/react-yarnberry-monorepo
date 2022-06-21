@@ -26,10 +26,6 @@ const tableState = atom({
 
 export function RecoilLoadableTester() {
   const { state, contents } = useRecoilValueLoadable(tableState);
-
-  console.log(state);
-  console.log(contents);
-
   return <RecoilLoadableTesterStyled></RecoilLoadableTesterStyled>;
 }
 

@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
-
+import { Main } from '@src/features/main/Main';
 export function MainPage() {
-  console.log(process.env.REACT_APP_MODE);
-  return <MainPageStyled>메인페이지</MainPageStyled>;
+  return (
+    <MainPageStyled>
+      <Main />
+    </MainPageStyled>
+  );
 }
 
 const MainPageStyled = styled.div``;

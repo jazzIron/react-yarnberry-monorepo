@@ -9,4 +9,7 @@ export function DiseasePage() {
   );
 }
 
-const DiseasePageStyled = styled.div``;
+const DiseasePageStyled = styled.div`
+  width: 100%;
+  max-width: 800px;
+`;
