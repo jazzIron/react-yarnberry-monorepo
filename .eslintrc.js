@@ -134,11 +134,11 @@ module.exports = {
       },
     },
     {
-      files: ['packages/common-untils/**/*.ts?(x)', 'packages/common-untils/**/*.js?(x)'],
+      files: ['packages/common-utils/**/*.ts?(x)', 'packages/common-utils/**/*.js?(x)'],
       settings: {
         'import/resolver': {
           typescript: {
-            project: path.resolve(`${__dirname}/packages/common-untils/tsconfig.json`),
+            project: path.resolve(`${__dirname}/packages/common-utils/tsconfig.json`),
           },
         },
       },

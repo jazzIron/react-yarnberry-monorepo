@@ -15,8 +15,8 @@
         //     "@common/components": [
         //         "components/src"
         //     ],
-        //     "@common/untils": [
-        //         "untils/src"
+        //     "@common/utils": [
+        //         "utils/src"
         //     ],
         //     "@common/styles": [
         //         "styles/src"
