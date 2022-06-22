@@ -70,41 +70,49 @@ export function DiseaseList() {
       <DiseaseSearchWrapper>
         <DiseaseSearch searchDisease={changeKeywordHandler} />
       </DiseaseSearchWrapper>
-      {diseaseList.loading ? (
-        <DiseaseRowSkeletonWrapper>
-          {new Array(7).fill(1).map((_, i) => {
-            return <DiseaseRowSkeleton key={i} />;
-          })}
-        </DiseaseRowSkeletonWrapper>
-      ) : (
-        <>
-          <DiseaseRowWrapper ref={target}>
-            {diseaseItems &&
-              diseaseItems.map((item, idx) => <DiseaseRow key={idx} diseaseItem={item} />)}
-          </DiseaseRowWrapper>
-          {hasNextPage && (
-            <LoadMoreWrapper>
-              <div ref={pageEndRef}>
-                <Spinner onActive={true} fullCover={false} />
-              </div>
-            </LoadMoreWrapper>
-          )}
-        </>
-      )}
+      <DiseaseContentWrapper>
+        {diseaseList.loading ? (
+          <DiseaseRowSkeletonWrapper>
+            {new Array(7).fill(1).map((_, i) => {
+              return <DiseaseRowSkeleton key={i} />;
+            })}
+          </DiseaseRowSkeletonWrapper>
+        ) : (
+          <>
+            <DiseaseRowWrapper ref={target}>
+              {diseaseItems &&
+                diseaseItems.map((item, idx) => <DiseaseRow key={idx} diseaseItem={item} />)}
+            </DiseaseRowWrapper>
+            {hasNextPage && (
+              <LoadMoreWrapper>
+                <div ref={pageEndRef}>
+                  <Spinner onActive={true} fullCover={false} />
+                </div>
+              </LoadMoreWrapper>
+            )}
+          </>
+        )}
+      </DiseaseContentWrapper>
     </DiseaseListWrapper>
   );
 }
 
 const DiseaseListWrapper = styled.div`
   width: 100%;
-  padding: 16px;
   max-height: 90vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
 `;
 const DiseaseSearchWrapper = styled.div`
+  padding: 8px 16px;
   border-bottom: 1px solid ${colors.gray7};
 `;
+
+const DiseaseContentWrapper = styled.div`
+  max-height: calc(90vh - 60px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px 16px;
+`;
+
 const DiseaseRowSkeletonWrapper = styled.div`
   margin-top: 20px;
   width: 100%;

@@ -9,15 +9,13 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx --cache",
     "common": "yarn workspace @common/components",
     "common-utils": "yarn workspace @common/utils",
     "common-styles": "yarn workspace @common/styles",
     "combine": "yarn workspace @admin/combine",
     "hospital": "yarn workspace @admin/hospital",
     "build": "yarn workspaces foreach run build",
-    "postinstall": "husky install",
-    "test:all": "yarn workspaces foreach --parallel --include @common/components run test"
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@types/eslint": "^8",

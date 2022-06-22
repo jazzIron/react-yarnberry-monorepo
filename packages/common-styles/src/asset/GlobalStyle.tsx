@@ -140,16 +140,16 @@ export default function GlobalStyle(): JSX.Element {
           cursor: pointer;
         }
 
-        ul::-webkit-scrollbar {
+        div::-webkit-scrollbar {
           width: 4px;
         }
 
-        ul::-webkit-scrollbar-thumb {
+        div::-webkit-scrollbar-thumb {
           height: 20%;
           background: ${colors.ays_maincolor};
           border-radius: 8px;
         }
-        ul::-webkit-scrollbar-track {
+        div::-webkit-scrollbar-track {
           background: rgba(33, 122, 244, 0.1);
         }
 
