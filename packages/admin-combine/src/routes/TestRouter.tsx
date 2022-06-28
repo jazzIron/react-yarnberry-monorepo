@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { TestRouteList } from './TestRouteList';
 import { AgTablePage } from '@src/pages/testPage/table/AgTablePage';
 import { AgTableBasic } from '@src/pages/testPage/table/AgTableBasic';
+import { SocketPage } from '@src/pages/testPage/socket/SocketPage';
 
 export function TestRouter() {
   return (
@@ -18,14 +19,15 @@ export function TestRouter() {
         <Route path={TestRouteList.TEST_RECOIL_ATOM_EFFECT} element={<RecoilAtomEffect />} />
         <Route path={TestRouteList.TEST_TABLE} element={<AgTablePage />} />
         <Route path={TestRouteList.TEST_TABLE_BASIC} element={<AgTableBasic />} />
+        <Route path={TestRouteList.TEST_SOCKET} element={<SocketPage />} />
       </Routes>
     </BodyStyled>
   );
 }
 
 const BodyStyled = styled.div`
-  ${cssx.contentWidth};
-  min-height: 700px;
+  /* ${cssx.contentWidth}; */
+  min-height: 100vh;
   margin: 0 auto;
   padding: 50px 30px;
 `;

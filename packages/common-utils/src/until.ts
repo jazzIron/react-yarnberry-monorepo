@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 /**
  * 클립보드 복사
  */
@@ -17,4 +19,10 @@ export const regExpReplaceAll = (str: string, type: string) => {
 // object key checker
 export const isKeyExists = (obj: any, key: string) => {
   return obj[key] === undefined ? false : true;
+};
+
+export const getTimeStamp = () => {
+  const today = new Date();
+  const time = moment(today, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss');
+  return time;
 };

@@ -5184,6 +5184,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.182"],\
             ["crypto-js", "npm:4.1.1"],\
             ["lodash", "npm:4.17.21"],\
+            ["moment", "npm:2.29.3"],\
             ["regenerator-runtime", "npm:0.13.9"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["typescript-styled-plugin", "npm:0.18.2"]\

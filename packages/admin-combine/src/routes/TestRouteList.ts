@@ -4,4 +4,5 @@ export enum TestRouteList {
   TEST_RECOIL_ATOM_EFFECT = '/recoil/atomEffect',
   TEST_TABLE = '/table',
   TEST_TABLE_BASIC = '/table/basic',
+  TEST_SOCKET = '/socket',
 }

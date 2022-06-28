@@ -1,0 +1,65 @@
+// 진료 수락 거절 여부
+export type HAS_TREAT_STATUS = 'ON' | 'OFF' | 'INIT';
+export type PATIENT_TYPE = 'LOCAL' | 'EXPACT';
+export type PATIENT_INFO_CATEGORY_NAME = 'BASIC' | 'PAST_HISTORY' | 'FAMILY_HISTORY' | 'SOCIAL';
+export type PHYSICAL_TYPE = 'HEIGHT' | 'WEIGHT';
+export type FAMILY_HISTORY_TYPE = 'FAMILY_HISTORY' | 'HAS_FAMILY_HISTORY';
+export type PAST_HISTORY_TYPE = 'PAST_HISTORY' | 'PAST_HISTORY_CODE';
+export type SOCIAL_HISTORY_TYPE =
+  | 'MEDICINE'
+  | 'JOB'
+  | 'SMOKE'
+  | 'SMOKE_DURATION'
+  | 'SMOKE_AMOUNT'
+  | 'NO_SMOKE'
+  | 'DRINK'
+  | 'DRINK_AMOUNT'
+  | 'DRINK_DURATION';
+
+export type TREAT_STATUS =
+  | 'ACCEPTED' // 진료수락
+  | 'STANDBY' // 진료대기
+  | 'REFUSED' // 진료거부
+  | 'IN_PROGRESS' // 진료중
+  | 'FINISHED' // 진료종료
+  | 'COMPLETED' // 진료완료
+  | 'PROCESSING' // 처리중
+  | 'UNFINISHED' // 진료 비정상종료
+  | 'CANCELED' // 진료취소
+  | 'ERROR'; // 에러
+
+export type USER_TREAT_STATUS = 'USER_DISCONNECT' | 'USER_FINISHED' | 'PERMISSION_DENIED';
+
+export type TREAT_PAGE_TYPE = 'ROOM' | 'HISTORY';
+export type TREAT_MODE = 'INIT' | 'SAVE' | 'MODIFY' | 'CANCEL';
+export type TREAT_ITEMS_CODE_TYPE = 'CP_0001' | 'PIF_0001';
+export type TREAT_EXPENSES_TYPE = 'REIMBURSEMENT' | 'NON_REIMBURSEMENT' | 'OVERSEAS_KOREANS';
+
+export type TREAT_PAYMENT_STATUS_TYPE =
+  | 'UNPAID' // 미결제
+  | 'PENDING' // 주문대기
+  | 'COMPLETED' // 주문완료
+  | 'FAILED' // 주문실패
+  | 'CANCELED' // 주문취소
+  | 'CANCELED_FAILED'
+  | 'PARTIAL_CANCELED'
+  | 'PARTIAL_CANCELED_FAILED'
+  | 'REFUNDED' // 환불완료
+  | 'REFUND_FAILED'; // 환불실패
+
+export type TREAT_ORDER_STATUS_TYPE =
+  | 'PENDING'
+  | 'COMPLETED'
+  | 'FAILED'
+  | 'CANCELED'
+  | 'REFUNDED'
+  | 'REFUND_FAILED';
+
+export type DOCUMENT_TYPE = 'PROOF' | 'PRESCRIPTION';
+
+export type TREAT_NOTI_TYPE =
+  | 'TREATMENT_COMPLETED'
+  | 'PAYMENT_FAILED'
+  | 'TREATMENT_CANCELED'
+  | 'TREATMENT_UNFINISHED'
+  | 'TREATMENT_INTERRUPTED';

@@ -39,10 +39,10 @@ module.exports = (env) => {
         directory: path.join(__dirname, 'public'),
       },
       client: {
-        progress: true,
+        progress: false,
       },
       compress: true,
-      port: 3000,
+      port: 3005,
       allowedHosts: 'auto',
       liveReload: true,
       hot: false,

@@ -4,13 +4,16 @@ import { css } from '@emotion/react';
 import { Icon, ICON_LIST } from '../icon';
 import { BUTTON_SIZE, ITextButton, ITextButtonStyled } from './Button_types';
 
-export function TextButton({ label, onClick, isDisabled, leftIcon, rightiCon, size }: ITextButton) {
+export function TextButton({ label, onClick, isDisabled, leftIcon, rightIcon, size }: ITextButton) {
   const buttonSizeStyleds = buttonSizeStyle[size];
+
+  const iconSize = size === 'LARGE' ? '20px' : '16px';
+
   return (
     <TextButtonStyled onClick={onClick} disabled={isDisabled} buttonSizeStyles={buttonSizeStyleds}>
-      {leftIcon && <Icon icon={ICON_LIST[leftIcon]} width="auto" />}
+      {leftIcon && <Icon icon={leftIcon} width={iconSize} />}
       <span>{label}</span>
-      {rightiCon && <Icon icon={ICON_LIST[rightiCon]} width="auto" />}
+      {rightIcon && <Icon icon={rightIcon} width={iconSize} />}
     </TextButtonStyled>
   );
 }
@@ -20,8 +23,9 @@ TextButton.defaultProps = {
 };
 
 const TextButtonStyled = styled.button<ITextButtonStyled>`
-  ${(props) => props.buttonSizeStyles}
-  ${Themes.cssx.flexStart}
+  ${(props) => props.buttonSizeStyles};
+  ${Themes.cssx.flexStart};
+  gap: 4px;
 `;
 
 const buttonSizeStyle = {

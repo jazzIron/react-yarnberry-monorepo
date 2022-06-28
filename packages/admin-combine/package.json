@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "webpack serve --env mode=development",
     "dev:build": "webpack --env mode=development --progress",
+    "stage": "webpack serve --env mode=stage",
     "start": "webpack serve --env mode=production --progress",
     "build": "webpack --env mode=production --progress",
     "analyze": "webpack-bundle-analyzer --port 8888 ./src/bundle-report.json --default-sizes gzip"

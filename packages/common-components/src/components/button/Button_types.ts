@@ -36,7 +36,7 @@ export interface ITextButton {
   onClick: () => void;
   isDisabled: boolean;
   leftIcon?: string;
-  rightiCon?: string;
+  rightIcon?: string;
   size: BUTTON_SIZE;
 }
 

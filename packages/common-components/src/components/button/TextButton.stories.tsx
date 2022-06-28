@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ICON_LIST } from '../icon';
 import { BUTTON_SIZE } from './Button_types';
 import { TextButton } from './TextButton';
 
@@ -9,6 +10,20 @@ export default {
     size: {
       options: BUTTON_SIZE,
       defaultValue: BUTTON_SIZE.SMALL,
+      control: {
+        type: 'select',
+      },
+    },
+    leftIcon: {
+      options: ICON_LIST,
+      defaultValue: ICON_LIST.repo,
+      control: {
+        type: 'select',
+      },
+    },
+    rightIcon: {
+      options: ICON_LIST,
+      defaultValue: ICON_LIST.repo,
       control: {
         type: 'select',
       },
@@ -24,5 +39,5 @@ Default.args = {
   onClick: () => console.log('click'),
   isDisabled: false,
   leftIcon: 'icn_plus2',
-  rightiCon: 'icn_arrow_58_x_58',
+  rightIcon: 'icn_arrow_58_x_58',
 };
